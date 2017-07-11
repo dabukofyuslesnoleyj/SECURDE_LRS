@@ -8,6 +8,7 @@
         <script src="utils/bootstrap/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/login.css"/>
         <script src="js/login.js"></script>
 
     </head>
@@ -17,10 +18,12 @@
     <!-- BEGIN # BOOTSNIP INFO -->
     <div class="container">
         <div class="row">
-            <h1 class="text-center">Green Desk</h1>
+            <h1 class="text-center"><img src="rsc/img/Green Desk New.png"/></h1>
             <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
+            
         </div>
     </div>
+    <h1 class="text-center"><img id="skylineImg" src="rsc/img/skyline.png"/></h1>
     <!-- END # BOOTSNIP INFO -->
 
 
@@ -59,33 +62,11 @@
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                                 </div>
                                 <div>
-                                    <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
                                     <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
                                 </div>
                             </div>
                         </form>
                         <!-- End # Login Form -->
-                        
-                        <!-- Begin | Lost Password Form -->
-                        <form id="lost-form" style="display:none;">
-                            <div class="modal-body">
-                                <div id="div-lost-msg">
-                                    <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                    <span id="text-lost-msg">Type your e-mail.</span>
-                                </div>
-                                <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
-                            </div>
-                            <div class="modal-footer">
-                                <div>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                                </div>
-                                <div>
-                                    <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
-                                    <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- End | Lost Password Form -->
                         
                         <!-- Begin | Register Form -->
                         <form id="register-form" style="display:none;">
@@ -94,9 +75,10 @@
                                     <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
                                     <span id="text-register-msg">Register an account.</span>
                                 </div>
-                                <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                                <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+                                <input id="register_token" class="form-control" type="text" placeholder="Given Token" required>
                                 <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+                                <input id="register_question" class="form-control" type="text" placeholder="Secret Question" required>
+                                <input id="register_answer" class="form-control" type="text" placeholder="Answer" required>
                             </div>
                             <div class="modal-footer">
                                 <div>
@@ -104,7 +86,6 @@
                                 </div>
                                 <div>
                                     <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                                    <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
                                 </div>
                             </div>
                         </form>
