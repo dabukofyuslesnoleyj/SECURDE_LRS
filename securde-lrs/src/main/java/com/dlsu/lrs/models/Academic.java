@@ -1,33 +1,42 @@
 package com.dlsu.lrs.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-import com.dlsu.lrs.Jsonifiable;
+import com.dlsu.lrs.util.Jsonifiable;
 
 @Entity
 public class Academic implements Jsonifiable {
 
 	@Id
 	private String id;
+	
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	
 	private AcademicType type = AcademicType.STUDENT;
+	
+	@OneToMany(mappedBy="academic")
+	private List<Account> accounts = new ArrayList<>();
 	
 	public Academic() { }
 	public Academic(String id) {
-		this.id = id;
+		setId(id);
 	}
 	public Academic(String id, String firstName, String middleName, String lastName) {
 		this(id);
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
 	}
 	public Academic(String id, String firstName, String middleName, String lastName, AcademicType type) {
 		this(id, firstName, middleName, lastName);
-		this.type = type;
+		setType(type);
 	}
 	
 	public String getId() {
@@ -65,12 +74,19 @@ public class Academic implements Jsonifiable {
 		this.type = type;
 	}
 	
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
 	@Override
 	public String toString() {
 		return "Academic [id=" + id +
 				", firstName=" + firstName +
 				", middleName=" + middleName +
 				", lastName=" + lastName +
-				", type=" + type + "]";
+				", type=" + type +
+				", accounts=" + accounts + "]";
 	}
 }

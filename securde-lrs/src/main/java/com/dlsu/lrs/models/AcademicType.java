@@ -1,6 +1,6 @@
 package com.dlsu.lrs.models;
 
-import com.dlsu.lrs.Jsonifiable;
+import com.dlsu.lrs.util.Jsonifiable;
 
 public enum AcademicType implements Jsonifiable {
 
