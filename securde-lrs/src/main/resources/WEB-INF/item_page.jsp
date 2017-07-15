@@ -53,7 +53,7 @@
 	</div>
 	<!--  -->
 	
-	<!-- Borrow Modal -->
+	<!-- Modals -->
 	<div id="borrow-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			
@@ -74,22 +74,46 @@
 			
 		</div>
 	</div>
+	
+	<div class="modal fade" id="review-modal" role="dialog">
+		<div class="modal-dialog">
+			
+			<!-- Modal Content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Review</h4>
+				</div>
+				<div class="modal-body">
+					<textarea name="textarea-review"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 	<!--  -->
 	
 	
 	<!-- item Reviews -->
 	<!-- Note: scrollable using CSS -->
-	<div class="media">
-		<div class="media-left">
-			<img alt="prof-pic" src="#" class="media-object">
-		</div>
-		<div class="media-body">
-			<h4 class="media-heading">Username</h4>
-			<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
-		</div>
-		<div class="media-right">
-			<h4>Rating</h4>
-			<p>99</p>
+	<div>
+		<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
+		<div class="media">
+			<div class="media-left">
+				<img alt="prof-pic" src="#" class="media-object">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Username</h4>
+				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+			</div>
+			<div class="media-right">
+				<h4>Rating</h4>
+				<p>99</p>
+			</div>
 		</div>
 	</div>
 	
