@@ -83,14 +83,14 @@ public class Account implements Jsonifiable {
 	public void setPrivileges(List<AccountPrivilege> privileges) {
 		this.privileges = privileges;
 	}
-	public boolean hasprivilege(AccountPrivilege privilege) {
-		return this.privileges.contains(privilege);
+	public boolean hasPrivilege(AccountPrivilege privilege) {
+		return getPrivileges().contains(privilege);
 	}
-	public void addprivilege(AccountPrivilege privilege) {
-		this.privileges.add(privilege);
+	public void addPrivilege(AccountPrivilege privilege) {
+		getPrivileges().add(privilege);
 	}
-	public void removeprivilege(AccountPrivilege privilege) {
-		this.privileges.remove(privilege);
+	public void removePrivilege(AccountPrivilege privilege) {
+		getPrivileges().remove(privilege);
 	}
 	
 	public Academic getAcademic() {
@@ -106,6 +106,7 @@ public class Account implements Jsonifiable {
 	public void setSecurity(AccountSecurity security) {
 		this.security = security;
 	}
+	
 	@Override
 	public String toString() {
 		return "Account [id=" + id +

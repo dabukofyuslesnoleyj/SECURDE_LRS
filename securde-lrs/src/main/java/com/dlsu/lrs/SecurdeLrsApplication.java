@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import com.dlsu.lrs.models.Academic;
 import com.dlsu.lrs.models.AcademicType;
@@ -14,6 +16,7 @@ import com.dlsu.lrs.models.AccountType;
 import com.dlsu.lrs.repo.AcademicRepository;
 import com.dlsu.lrs.repo.AccountRepository;
 
+@EntityScan(basePackageClasses = {SecurdeLrsApplication.class, Jsr310JpaConverters.class})
 @SpringBootApplication
 public class SecurdeLrsApplication {
 	

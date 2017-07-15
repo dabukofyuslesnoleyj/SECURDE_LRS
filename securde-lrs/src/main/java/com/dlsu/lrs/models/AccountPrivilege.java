@@ -1,6 +1,8 @@
 package com.dlsu.lrs.models;
 
-public enum AccountPrivilege {
+import com.dlsu.lrs.util.Jsonifiable;
+
+public enum AccountPrivilege implements Jsonifiable {
 
 	ACCOUNT_UNLOCK,
 	ADMIN_ARCHIVE, ADMIN_CREATE,

@@ -82,11 +82,11 @@ public class Academic implements Jsonifiable {
 	}
 	@Override
 	public String toString() {
-		return "Academic [id=" + id +
-				", firstName=" + firstName +
-				", middleName=" + middleName +
-				", lastName=" + lastName +
-				", type=" + type +
-				", accounts=" + accounts + "]";
+		return "Academic [id=" + getId() +
+				", firstName=" + getFirstName() +
+				", middleName=" + getMiddleName() +
+				", lastName=" + getLastName() +
+				", type=" + getType() +
+				", accounts=" + getAccounts() + "]";
 	}
 }
