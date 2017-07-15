@@ -31,34 +31,65 @@
 	<!--  -->
 	
 	<!-- Item Details -->
-	<div>
-		<div class="col-4">
-			<img alt="Item" src="#">
+	<div class="row">
+		<div class="col-md-2">
+			<img src="#">
 		</div>
-		<div class="col-4">
+		<div class="col-md-6">
 			<h3>Book Name</h3>
 			<p>Author</p>
 			<p>Publisher</p>
 			<p>Tag</p><button>+</button>
 		</div>
-		<div class="col-4">
+		<div class="col-md-4">
 			<h3>Score</h3>
-			<img alt="all over 10" src="#">
+			<img src="#">
 			<p>Available #</p>
 			<select name="item-select-quantity">
 				<option value="1">1</option>
-			</select><button>Borrow</button>
+			</select>
+			<button class="btn btn-info btn-lg" data-toggle="modal" data-target=".myModal">Borrow</button>
 		</div>
 	</div>
 	<!--  -->
 	
+	<!-- Borrow Modal -->
+	<div id="borrow-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			
+			<!-- Modal Content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Borrow Item</h4>
+				</div>
+				<div class="modal-body">
+					<p>Would you like to borrow [Book Name]?</p>
+				</div>
+				<div class="modal-footer">
+					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--  -->
+	
+	
 	<!-- item Reviews -->
 	<!-- Note: scrollable using CSS -->
-	<div>
-		<div class="row-1">
-			<div class="col-2"><img alt="prof-pic" src="#"></div>
-			<p>Rating</p>
+	<div class="media">
+		<div class="media-left">
+			<img alt="prof-pic" src="#" class="media-object">
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Username</h4>
 			<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+		</div>
+		<div class="media-right">
+			<h4>Rating</h4>
+			<p>99</p>
 		</div>
 	</div>
 	
