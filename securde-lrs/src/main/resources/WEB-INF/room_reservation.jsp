@@ -9,6 +9,9 @@
      
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="js/room_reservation.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/room_reservation.css"/>
 </head>
 <body>
 	<!-- NAV BAR AREA -->
@@ -48,20 +51,20 @@
 			</tr>
 			<tr>
 				<th>E101</th>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
+				<td class="time-slot" state="0"></td>
 			</tr>
 		</table>
 		<form>

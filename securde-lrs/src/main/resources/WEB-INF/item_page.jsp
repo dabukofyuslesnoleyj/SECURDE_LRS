@@ -10,10 +10,10 @@
      
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+     
+     <link rel="stylesheet" type="text/css" href="css/item_page.css"/>
 </head>
 <body>
-
 	<!-- NAV BAR AREA -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -48,13 +48,13 @@
 			<select name="item-select-quantity">
 				<option value="1">1</option>
 			</select>
-			<button class="btn btn-info btn-lg" data-toggle="modal" data-target=".myModal">Borrow</button>
+			<button id="borrow-button" data-toggle="modal" data-target="#borrow-modal">Borrow</button>
 		</div>
 	</div>
 	<!--  -->
 	
 	<!-- Modals -->
-	<div id="borrow-modal" class="modal fade" role="dialog">
+	<div class="modal fade" id="borrow-modal" role="dialog">
 		<div class="modal-dialog">
 			
 			<!-- Modal Content -->
@@ -67,8 +67,8 @@
 					<p>Would you like to borrow [Book Name]?</p>
 				</div>
 				<div class="modal-footer">
-					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Confirm</button>
-					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button id="borrow-modal-confirm" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-close" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 			
@@ -88,8 +88,8 @@
 					<textarea name="textarea-review"></textarea>
 				</div>
 				<div class="modal-footer">
-					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Confirm</button>
-					<button id="borrow-modal-confirm" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button id="borrow-modal-confirm" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-close" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 			
@@ -100,8 +100,21 @@
 	
 	<!-- item Reviews -->
 	<!-- Note: scrollable using CSS -->
-	<div>
-		<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
+	<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
+	<div id="review-list">
+		<div class="media">
+			<div class="media-left">
+				<img alt="prof-pic" src="#" class="media-object">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Username</h4>
+				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+			</div>
+			<div class="media-right">
+				<h4>Rating</h4>
+				<p>99</p>
+			</div>
+		</div>
 		<div class="media">
 			<div class="media-left">
 				<img alt="prof-pic" src="#" class="media-object">
