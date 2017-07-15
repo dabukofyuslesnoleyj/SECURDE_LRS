@@ -13,7 +13,25 @@
 
     <body>
 
-        <div class="row" ></div>
+        <div class="row" id="title_row">
+            <h2>Library Items</h2>
+        </div>
+        <div class="row" id="search_filter_row">
+            </form>
+            <div id="search_div">
+                <input type="text">
+            </div>
+            <div id="type_filter_div">
+
+            </div>
+            <div id="sort_div">
+                <select>
+                    <option>
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row" id="itemlist_row"></div>
 
     </body>
 
