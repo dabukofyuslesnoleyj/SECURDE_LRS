@@ -6,3 +6,11 @@ body{
 #skylineImg{
     width:100%;
 }
+
+button{
+    background-color: #006635;
+}
+
+#modal_button{
+    background-color: #006635;
+}

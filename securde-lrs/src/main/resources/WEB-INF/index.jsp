@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <h1 class="text-center"><img src="rsc/img/Green Desk New.png"/></h1>
-            <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
+            <p class="text-center"><a href="#" id="modal_button"" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
             
         </div>
     </div>
@@ -32,7 +32,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" align="center">
-                        <img class="img-circle" id="img_logo" src="rsc/img/logo.jpg"/>
+                        <img class="img-circle" id="img_logo" src="rsc/img/GreenDeskLogin.png"/>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
