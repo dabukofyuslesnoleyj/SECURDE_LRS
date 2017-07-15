@@ -2,3 +2,21 @@
 .list_panel{
     height: 60%;
 }
+
+.badge-danger{
+    background-color: #990036;
+}
+
+.media{
+    width: 97%;
+    padding-top: 1%;
+    padding-left: 4%;
+    padding-bottom: 1%;
+    margin-left: 1.5%;
+    border: 2px solid #DDD;
+    background-color: white;
+}
+
+.panel{
+    background-color: #EEE;
+}

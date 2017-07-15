@@ -52,7 +52,7 @@
                 <div class="col-md-9">
                     <div class="row">
                         <h2>
-                            Borrowed Items  <span class="label label-danger">1</span>
+                            Borrowed Items  <span class="badge badge-danger badge-pill">1</span>
                         </h2>
                     </div>
                     <div class="panel panel-default list_panel">
