@@ -14,10 +14,10 @@
         <div class="container" id="main-container">
             <div class="row">
                 <div class="col-md-6">
-
+                    <button type="button" class="btn btn-primary btn-lg btn-block main_button">Borrow Items</button>
                 </div>
                 <div class="col-md-6">
-                    
+                    <button type="button" class="btn btn-primary btn-lg btn-block main_button">Reserve a Room</button>
                 </div>
             </div>
         </div>
