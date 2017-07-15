@@ -49,11 +49,11 @@
             
             <div class="row item_container">
                 
-                <div class="item_image col-md-2">
-                    <img src="rsc/img/bookCover.jpg" class="image-responsive item_cover"/>
+                <div class="item_image col-md-1">
+                    <img src="rsc/img/bookCover.jpg" class="img-responsive item_cover"/>
                 </div>
                 
-                <div class="item_info col-md-10">
+                <div class="item_info col-md-11">
                     <div class="row item_info_upper_row">
                         <div class="item_info_name_div col-md-4">
                             <p class="item_info_name">Book of Worlds</p>
