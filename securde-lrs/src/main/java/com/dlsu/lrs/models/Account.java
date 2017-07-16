@@ -22,6 +22,7 @@ public class Account implements Jsonifiable {
 	private String password;
 	
 	private AccountType type = AccountType.STUDENT;
+	
 	@ElementCollection
 	private List<AccountPrivilege> privileges = new ArrayList<>();
 	
