@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dlsu.lrs.constants.SessionKeys;
@@ -39,6 +40,7 @@ import com.dlsu.lrs.repos.ItemRatingRepository;
 import com.dlsu.lrs.repos.ItemRepository;
 import com.dlsu.lrs.repos.ItemReviewRepository;
 import com.dlsu.lrs.repos.ItemTagRepository;
+import com.dlsu.lrs.util.ModelToProxy;
 import com.dlsu.lrs.util.ajax.AjaxResponseEntity;
 
 @RestController
@@ -72,25 +74,7 @@ public class ItemRestController {
 		if(item == null)
 			return new AjaxResponseEntity<>(HttpStatus.NOT_FOUND);
 		
-		ItemProxy result = new ItemProxy();
-		result.id = item.getId();
-		result.name = item.getName();
-		result.desc = item.getDescription();
-		result.publisher = item.getPublisher().getName();
-		result.year = item.getYear();
-		result.type = item.getType();
-		result.authors = new ArrayList<>();
-		result.tags = new ArrayList<>();
-		
-		for(ItemAuthor a : item.getAuthors()) {
-			NameData n = new NameData();
-			n.f = a.getFirstName();
-			n.m = a.getMiddleName();
-			n.l = a.getLastName();
-			result.authors.add(n);
-		}
-		for(ItemTag t : item.getTags())
-			result.tags.add(t.getName());
+		ItemProxy result = ModelToProxy.from(item);
 
 		return new AjaxResponseEntity<>(result, HttpStatus.OK);
 	}
@@ -275,5 +259,19 @@ public class ItemRestController {
 		ItemRating rating = new ItemRating(item, account, params.rating);
 		ratingRepo.save(rating);
 		return new AjaxResponseEntity<>(HttpStatus.CREATED);
+	}
+	
+	@RequestMapping("/search")
+	public ResponseEntity<?> search(@RequestParam("q") String q, HttpSession session) {
+		Account account = accountRepo.findOne(session.getAttribute(SessionKeys.LOGGED_IN_ACCOUNT_ID) + "");
+		if(account == null)
+			return new AjaxResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		
+		List<Item> items = itemRepo.findByNameContainsOrDescriptionContainsAllIgnoreCase(q, q);
+		List<ItemProxy> results = new ArrayList<>();
+		for(Item item : items)
+			results.add(ModelToProxy.from(item));
+		
+		return new AjaxResponseEntity<>(results, HttpStatus.OK);
 	}
 }
