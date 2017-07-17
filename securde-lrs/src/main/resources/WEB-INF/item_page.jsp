@@ -1,16 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+   pageEncoding="ISO-8859-1"%> -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/index.css"/>
-     <script src="jquery-3.2.1.min.js"></script>
-     
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     
+     <link rel="stylesheet" type="text/css" href="utils/bootstrap/css/bootstrap.min.css"/>
+        <script src="utils/jquery-3.2.1.min.js"></script>
+        <script src="utils/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
      <link rel="stylesheet" type="text/css" href="css/item_page.css"/>
 </head>
 <body>
@@ -31,26 +29,32 @@
 	<!--  -->
 	
 	<!-- Item Details -->
-	<div class="row">
-		<div class="col-md-2">
-			<img src="#">
-		</div>
-		<div class="col-md-6">
-			<h3>Book Name</h3>
-			<p>Author</p>
-			<p>Publisher</p>
-			<p>Tag</p><button>+</button>
-		</div>
-		<div class="col-md-4">
-			<h3>Score</h3>
-			<img src="#">
-			<p>Available #</p>
-			<select name="item-select-quantity">
-				<option value="1">1</option>
-			</select>
-			<button id="borrow-button" data-toggle="modal" data-target="#borrow-modal">Borrow</button>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<img src="#">
+			</div>
+			<div class="col-md-6">
+				<h3 id="item_name">Book Name</h3>
+				<div id="item_author">Author</div>
+				<p id="item_publisher">Publisher</p>
+				<div>
+					<ul class="item_tags list-inline-item">
+					</ul>
+				</div><button>+</button>
+			</div>
+			<div class="col-md-4">
+				<h3>Score</h3>
+				<img src="#">
+				<p>Available #</p>
+				<select name="item-select-quantity">
+					<option value="1">1</option>
+				</select>
+				<button id="borrow-button" data-toggle="modal" data-target="#borrow-modal">Borrow</button>
+			</div>
 		</div>
 	</div>
+	
 	<!--  -->
 	
 	<!-- Modals -->
@@ -100,35 +104,39 @@
 	
 	<!-- item Reviews -->
 	<!-- Note: scrollable using CSS -->
-	<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
-	<div id="review-list">
-		<div class="media">
-			<div class="media-left">
-				<img alt="prof-pic" src="#" class="media-object">
+	
+	<div class="container-fluid">
+		<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
+		<div id="review-list">
+			<div class="media">
+				<div class="media-left">
+					<img alt="prof-pic" src="#" class="media-object">
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">Username</h4>
+					<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+				</div>
+				<div class="media-right">
+					<h4>Rating</h4>
+					<p>99</p>
+				</div>
 			</div>
-			<div class="media-body">
-				<h4 class="media-heading">Username</h4>
-				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
-			</div>
-			<div class="media-right">
-				<h4>Rating</h4>
-				<p>99</p>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-left">
-				<img alt="prof-pic" src="#" class="media-object">
-			</div>
-			<div class="media-body">
-				<h4 class="media-heading">Username</h4>
-				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
-			</div>
-			<div class="media-right">
-				<h4>Rating</h4>
-				<p>99</p>
+			<div class="media">
+				<div class="media-left">
+					<img alt="prof-pic" src="#" class="media-object">
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">Username</h4>
+					<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+				</div>
+				<div class="media-right">
+					<h4>Rating</h4>
+					<p>99</p>
+				</div>
 			</div>
 		</div>
 	</div>
+	
 	
 </body>
 </html>
