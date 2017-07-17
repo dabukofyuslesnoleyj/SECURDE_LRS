@@ -26,20 +26,14 @@ public class Academic {
 	private List<Account> accounts;
 	
 	public Academic() { }
-	public Academic(String id) {
-		setId(id);
-	}
-	public Academic(String id, String firstName, String middleName, String lastName) {
-		this(id);
-		setFirstName(firstName);
-		setMiddleName(middleName);
-		setLastName(lastName);
-	}
 	public Academic(String id, String firstName, String middleName, String lastName, AcademicType type) {
-		this(id, firstName, middleName, lastName);
-		setType(type);
+		this.id = id;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.type = type;
 	}
-	
+
 	public String getId() {
 		return id;
 	}

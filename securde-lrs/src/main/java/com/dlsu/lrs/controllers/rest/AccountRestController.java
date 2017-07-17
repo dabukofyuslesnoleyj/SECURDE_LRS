@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dlsu.lrs.constants.KeyConstants;
 import com.dlsu.lrs.controllers.DataTypes.LoginParams;
-import com.dlsu.lrs.controllers.DataTypes.RegisterParams;
+import com.dlsu.lrs.controllers.DataTypes.AccoutProxy;
 import com.dlsu.lrs.models.Academic;
 import com.dlsu.lrs.models.Account;
 import com.dlsu.lrs.models.AccountType;
@@ -44,7 +44,7 @@ public class AccountRestController {
 	}
 	
 	@RequestMapping("/register")
-	public ResponseEntity<?> register(@RequestBody RegisterParams params) {
+	public ResponseEntity<?> register(@RequestBody AccoutProxy params) {
 		Token token = tokenRepo.findByToken(params.token);
 		if(token == null)
 			return new AjaxResponseEntity<>(HttpStatus.UNAUTHORIZED);

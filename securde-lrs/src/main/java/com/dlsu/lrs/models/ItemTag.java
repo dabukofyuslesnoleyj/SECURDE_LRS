@@ -16,12 +16,11 @@ public class ItemTag {
 	
 	public ItemTag() { }
 	public ItemTag(String name) {
-		this();
-		setName(name);
+		this.name = name;
 	}
 	public ItemTag(String name, String description) {
-		this(name);
-		setDescription(description);
+		this.name = name;
+		this.description = description;
 	}
 	
 	public int getId() {

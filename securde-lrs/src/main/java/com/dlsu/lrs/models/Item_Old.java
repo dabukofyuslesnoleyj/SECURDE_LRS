@@ -15,24 +15,20 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Item {
+public class Item_Old {
 
 	@Id @GeneratedValue
 	private long id;
 
 	private String name;
 	
-	private String description;
-	
-	private Integer year;
-	
+	private ItemType type;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "publisherId")
 	private ItemPublisher publisher;
-
-	private ItemType type = ItemType.BOOK;
 	
-	private ItemStatus status = ItemStatus.AVAILABLE;
+	private Integer year;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="itemAuthorRel", joinColumns=@JoinColumn(name="itemId"), inverseJoinColumns=@JoinColumn(name="authorId"))  
@@ -41,19 +37,31 @@ public class Item {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="itemCategoryRel", joinColumns=@JoinColumn(name="itemId"), inverseJoinColumns=@JoinColumn(name="categoryId"))  
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<ItemTag> tags;
+	private List<ItemTag> categories;
 
-	public Item() { }
-	public Item(String name, String desc, Integer year, ItemPublisher publisher, ItemType type, List<ItemAuthor> authors, List<ItemTag> tags) {
-		this.name = name;
-		this.description = desc;
-		this.year = year;
-		this.publisher = publisher;
-		this.type = type;
-		this.authors = authors;
-		this.tags = tags;
+	public Item_Old() { }
+	public Item_Old(String name) {
+		this();
+		setName(name);
 	}
-
+	public Item_Old(String name, ItemType type) {
+		this(name);
+		setType(type);
+	}
+	public Item_Old(String name, ItemType type, List<ItemAuthor> authors) {
+		this(name, type);
+		setAuthors(authors);
+	}
+	public Item_Old(String name, ItemType type, ItemPublisher publisher, Integer year, List<ItemAuthor> authors) {
+		this(name, type, authors);
+		setPublisher(publisher);
+		setYear(year);
+	}
+	public Item_Old(String name, ItemType type, ItemPublisher publisher, Integer year, List<ItemAuthor> authors, List<ItemTag> categories) {
+		this(name, type, publisher, year, authors);
+		setCategories(categories);
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -68,18 +76,11 @@ public class Item {
 		this.name = name;
 	}
 	
-	public String getDescription() {
-		return description;
+	public ItemType getType() {
+		return type;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public Integer getYear() {
-		return year;
-	}
-	public void setYear(Integer year) {
-		this.year = year;
+	public void setType(ItemType type) {
+		this.type = type;
 	}
 	
 	public ItemPublisher getPublisher() {
@@ -89,20 +90,13 @@ public class Item {
 		this.publisher = publisher;
 	}
 	
-	public ItemType getType() {
-		return type;
+	public Integer getYear() {
+		return year;
 	}
-	public void setType(ItemType type) {
-		this.type = type;
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
-	public ItemStatus getStatus() {
-		return status;
-	}
-	public void setStatus(ItemStatus status) {
-		this.status = status;
-	}
-
 	public List<ItemAuthor> getAuthors() {
 		return authors;
 	}
@@ -112,11 +106,11 @@ public class Item {
 	public ItemAuthor getAuthor() {
 		return getAuthors().get(0);
 	}
-	
-	public List<ItemTag> getTags() {
-		return tags;
+
+	public List<ItemTag> getCategories() {
+		return categories;
 	}
-	public void setTags(List<ItemTag> tags) {
-		this.tags = tags;
+	public void setCategories(List<ItemTag> categories) {
+		this.categories = categories;
 	}
 }

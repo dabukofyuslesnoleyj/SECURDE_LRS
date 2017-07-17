@@ -2,6 +2,7 @@ package com.dlsu.lrs.models;
 
 import com.dlsu.lrs.util.Jsonifiable;
 
+@Deprecated
 public enum AccountPrivilege implements Jsonifiable {
 
 	ACCOUNT_UNLOCK,

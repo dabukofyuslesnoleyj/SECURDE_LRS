@@ -21,6 +21,14 @@ public class RoomReservation {
 	
 	private LocalDateTime timestamp;
 	
+	private String group;
+	
+	private String members;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "reserverId")
+	private Account reserver;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "roomId")
 	private Room room;
@@ -31,31 +39,19 @@ public class RoomReservation {
 	@JoinTable(name="reservationTimeRel", joinColumns=@JoinColumn(name="reservationId"), inverseJoinColumns=@JoinColumn(name="timeId"))  
 	private List<TimeSlot> timeSlots;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "reserverId")
-	private Account reserver;
-	
-	private String group;
-	
-	private String members;
-	
-	public RoomReservation() { }
-	public RoomReservation(Room room, LocalDate date, List<TimeSlot> timeSlots) {
-		this();
-		setRoom(room);
-		setDate(date);
-		setTimeSlots(timeSlots);
+	public RoomReservation() {
+		this.timestamp = LocalDateTime.now();
 	}
-	public RoomReservation(Room room, LocalDate date, List<TimeSlot> timeSlots, Account reserver) {
-		this(room, date, timeSlots);
-		setReserver(reserver);
-	}
-	public RoomReservation(Room room, LocalDate date, List<TimeSlot> timeSlots, Account reserver, String group, String members) {
-		this(room, date, timeSlots, reserver);
+	public RoomReservation(String group, String members, Account reserver, Room room, LocalDate date, List<TimeSlot> timeSlots) {
+		this.timestamp = LocalDateTime.now();
 		this.group = group;
 		this.members = members;
+		this.reserver = reserver;
+		this.room = room;
+		this.date = date;
+		this.timeSlots = timeSlots;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -68,6 +64,27 @@ public class RoomReservation {
 	}
 	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	public String getGroup() {
+		return group;
+	}
+	public void setGroup(String group) {
+		this.group = group;
+	}
+	
+	public String getMembers() {
+		return members;
+	}
+	public void setMembers(String members) {
+		this.members = members;
+	}
+
+	public Account getReserver() {
+		return reserver;
+	}
+	public void setReserver(Account reserver) {
+		this.reserver = reserver;
 	}
 	
 	public Room getRoom() {
@@ -89,26 +106,5 @@ public class RoomReservation {
 	}
 	public void setTimeSlots(List<TimeSlot> timeSlots) {
 		this.timeSlots = timeSlots;
-	}
-	
-	public Account getReserver() {
-		return reserver;
-	}
-	public void setReserver(Account reserver) {
-		this.reserver = reserver;
-	}
-	
-	public String getGroup() {
-		return group;
-	}
-	public void setGroup(String group) {
-		this.group = group;
-	}
-
-	public String getMembers() {
-		return members;
-	}
-	public void setMembers(String members) {
-		this.members = members;
 	}
 }

@@ -11,15 +11,12 @@ public class Dewey {
 	private String description;
 	
 	public Dewey() { }
-	public Dewey(String id) {
-		this();
-		setId(id);
-	}
 	public Dewey(String id, String description) {
-		this(id);
-		setDescription(description);
+		this.id = id;
+		this.description = description;
 	}
-	
+
+
 	public String getId() {
 		return id;
 	}

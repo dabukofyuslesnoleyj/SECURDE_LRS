@@ -28,12 +28,14 @@ public class ItemReview {
 	
 	private String review;
 	
-	public ItemReview() { }
+	public ItemReview() {
+		this.timestamp = LocalDateTime.now();
+	}
 	public ItemReview(Item item, Account account, String review) {
-		this();
-		setItem(item);
-		setAccount(account);
-		setReview(review);
+		this.item = item;
+		this.account = account;
+		this.review = review;
+		this.timestamp = LocalDateTime.now();
 	}
 
 	public long getId() {

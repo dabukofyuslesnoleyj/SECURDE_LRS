@@ -18,11 +18,10 @@ public class TimeSlot {
 	
 	public TimeSlot() { }
 	public TimeSlot(LocalTime start, LocalTime end) {
-		this();
-		setStart(start);
-		setEnd(end);
+		this.start = start;
+		this.end = end;
 	}
-	
+
 	public long getId() {
 		return id;
 	}

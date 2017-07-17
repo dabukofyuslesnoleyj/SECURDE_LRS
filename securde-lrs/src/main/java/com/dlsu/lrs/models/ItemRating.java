@@ -24,14 +24,11 @@ public class ItemRating {
 	
 	private int rating;
 	
-	public ItemRating() {
-		super();
-	}
+	public ItemRating() { }
 	public ItemRating(Item item, Account account, int rating) {
-		this();
-		setItem(item);
-		setAccount(account);
-		setRating(rating);
+		this.item = item;
+		this.account = account;
+		this.rating = rating;
 	}
 
 	public long getId() {

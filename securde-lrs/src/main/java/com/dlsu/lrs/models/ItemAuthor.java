@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class ItemAuthor {
 
 	@Id @GeneratedValue
-	private int id;
+	private long id;
 	
 	private String firstName;
 	
@@ -17,20 +17,16 @@ public class ItemAuthor {
 	private String lastName;
 
 	public ItemAuthor() { }
-	public ItemAuthor(String firstName, String lastName) {
-		this();
-		setFirstName(firstName);
-		setLastName(lastName);
-	}
 	public ItemAuthor(String firstName, String middleName, String lastName) {
-		this(firstName, lastName);
-		setMiddleName(middleName);
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
 	}
-	
-	public int getId() {
+
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

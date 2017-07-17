@@ -15,12 +15,8 @@ public class AccountSecurity {
 	
 	public AccountSecurity() { }
 	public AccountSecurity(String question, String answer) {
-		setQuestion(question);
-		setAnswer(answer);
-	}
-	public AccountSecurity(Account account, String question, String answer) {
-		this(question, answer);
-		setAccount(account);
+		this.question = question;
+		this.answer = answer;
 	}
 
 	public Account getAccount() {

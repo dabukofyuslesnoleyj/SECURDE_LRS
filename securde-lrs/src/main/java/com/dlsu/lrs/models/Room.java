@@ -10,12 +10,13 @@ public class Room {
 	@Id @GeneratedValue
 	private long id;
 	
+	private boolean isAvailable;
+	
 	private String name;
 	
 	public Room() { }
 	public Room(String name) {
-		this();
-		setName(name);
+		this.name = name;
 	}
 	
 	public long getId() {
@@ -25,6 +26,13 @@ public class Room {
 		this.id = id;
 	}
 
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	
 	public String getName() {
 		return name;
 	}
