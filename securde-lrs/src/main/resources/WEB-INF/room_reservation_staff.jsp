@@ -30,8 +30,8 @@
 	</nav>
 	<!--  -->
 	
-	<h3 id="reservation-list-header">Rooms</h3>
-	<div id="reservation-list-container">
+	<h3 id="room-list-header">Rooms</h3>
+	<div id="room-list-container">
 		<div class="media">
 			<div class="media-body">
 				<h4 class="media-heading">Room #</h4>
