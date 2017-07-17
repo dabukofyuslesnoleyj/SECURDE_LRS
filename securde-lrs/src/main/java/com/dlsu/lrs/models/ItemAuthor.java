@@ -4,16 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class ItemAuthor implements Jsonifiable {
+public class ItemAuthor {
 
 	@Id @GeneratedValue
 	private int id;
 	
 	private String firstName;
+	
 	private String middleName;
+	
 	private String lastName;
 
 	public ItemAuthor() { }
@@ -58,13 +58,5 @@ public class ItemAuthor implements Jsonifiable {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-	
-	@Override
-	public String toString() {
-		return "ItemAuthor [id=" + getId() +
-				", firstName=" + getFirstName() +
-				", middleName=" + getMiddleName() +
-				", lastName=" + getLastName() + "]";
 	}
 }

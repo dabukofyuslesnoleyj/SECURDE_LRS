@@ -3,29 +3,40 @@ package com.dlsu.lrs.models;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.dlsu.lrs.util.Jsonifiable;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Item implements Jsonifiable {
+public class Item {
 
 	@Id @GeneratedValue
 	private long id;
 
 	private String name;
+	
 	private ItemType type;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "publisherId")
 	private ItemPublisher publisher;
+	
 	private Integer year;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="itemAuthorRel", joinColumns=@JoinColumn(name="itemId"), inverseJoinColumns=@JoinColumn(name="authorId"))  
 	private List<ItemAuthor> authors;
-	@ManyToMany
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="itemCategoryRel", joinColumns=@JoinColumn(name="itemId"), inverseJoinColumns=@JoinColumn(name="categoryId"))  
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<ItemCategory> categories;
 
 	public Item() { }
@@ -101,16 +112,5 @@ public class Item implements Jsonifiable {
 	}
 	public void setCategories(List<ItemCategory> categories) {
 		this.categories = categories;
-	}
-	
-	@Override
-	public String toString() {
-		return "Item [id=" + getId() +
-				", name=" + getName() +
-				", type=" + getType() +
-				", publisher=" + getPublisher() +
-				", year=" + getYear() +
-				", authors=" + getAuthors() +
-				", categories=" + getCategories() + "]";
 	}
 }

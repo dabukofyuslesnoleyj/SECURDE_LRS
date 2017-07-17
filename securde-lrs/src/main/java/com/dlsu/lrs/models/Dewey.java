@@ -3,10 +3,8 @@ package com.dlsu.lrs.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class Dewey implements Jsonifiable {
+public class Dewey {
 
 	@Id
 	private String id;
@@ -34,11 +32,5 @@ public class Dewey implements Jsonifiable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	
-	@Override
-	public String toString() {
-		return "Dewey [id=" + getId() +
-				", description=" + getDescription() + "]";
 	}
 }

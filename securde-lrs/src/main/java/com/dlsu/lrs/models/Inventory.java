@@ -1,25 +1,25 @@
 package com.dlsu.lrs.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class Inventory implements Jsonifiable {
+public class Inventory {
 
 	@Id @GeneratedValue
 	private int id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Item item;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Dewey location;
 	
 	private int total;
+	
 	private int available;
 	
 	public Inventory() { }
@@ -75,14 +75,5 @@ public class Inventory implements Jsonifiable {
 	}
 	public void setAvailable(int available) {
 		this.available = available;
-	}
-	
-	@Override
-	public String toString() {
-		return "Inventory [id=" + getId() +
-				", item=" + getId() +
-				", location=" + getLocation() +
-				", total=" + getTotal() +
-				", available=" + getAvailable() + "]";
 	}
 }

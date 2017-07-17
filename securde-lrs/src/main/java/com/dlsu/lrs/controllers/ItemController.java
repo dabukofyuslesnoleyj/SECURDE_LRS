@@ -1,5 +1,5 @@
 package com.dlsu.lrs.controllers;
 
-public class AccountController {
+public class ItemController {
 
 }

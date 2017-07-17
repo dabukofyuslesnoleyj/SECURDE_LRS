@@ -1,28 +1,29 @@
 package com.dlsu.lrs.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class Academic implements Jsonifiable {
+public class Academic extends _Prototype_AppModel {
 
 	@Id
 	private String id;
 	
 	private String firstName;
+	
 	private String middleName;
+	
 	private String lastName;
 	
 	private AcademicType type = AcademicType.STUDENT;
 	
-	@OneToMany(mappedBy="academic")
-	private List<Account> accounts = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy="academic")
+	private List<Account> accounts;
 	
 	public Academic() { }
 	public Academic(String id) {
@@ -79,14 +80,5 @@ public class Academic implements Jsonifiable {
 	}
 	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
-	}
-	@Override
-	public String toString() {
-		return "Academic [id=" + getId() +
-				", firstName=" + getFirstName() +
-				", middleName=" + getMiddleName() +
-				", lastName=" + getLastName() +
-				", type=" + getType() +
-				", accounts=" + getAccounts() + "]";
 	}
 }

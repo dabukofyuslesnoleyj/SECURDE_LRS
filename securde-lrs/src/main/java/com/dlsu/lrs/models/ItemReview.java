@@ -3,27 +3,29 @@ package com.dlsu.lrs.models;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.dlsu.lrs.util.Jsonifiable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
-public class ItemReview implements Jsonifiable {
+public class ItemReview {
 
 	@Id @GeneratedValue
 	private long id;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime timestamp;
 	
-	@ManyToMany
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "itemId")
 	private Item item;
-	@ManyToMany
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "accountId")
 	private Account account;
+	
 	private String review;
 	
 	public ItemReview() { }
@@ -67,14 +69,5 @@ public class ItemReview implements Jsonifiable {
 	}
 	public void setReview(String review) {
 		this.review = review;
-	}
-	
-	@Override
-	public String toString() {
-		return "ItemRating [id=" + getId() +
-				", timestamp=" + getTimestamp() +
-				", item=" + getItem() +
-				", account=" + getAccount() +
-				", review=" + getReview() + "]";
 	}
 }

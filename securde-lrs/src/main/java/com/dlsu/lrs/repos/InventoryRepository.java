@@ -1,4 +1,4 @@
-package com.dlsu.lrs.repo;
+package com.dlsu.lrs.repos;
 
 import org.springframework.data.repository.CrudRepository;
 

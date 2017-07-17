@@ -5,34 +5,38 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.dlsu.lrs.util.Jsonifiable;
 
 @Entity
-public class RoomReservation implements Jsonifiable {
+public class RoomReservation {
 
 	@Id @GeneratedValue
 	private long id;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime timestamp;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "roomId")
 	private Room room;
 	
 	private LocalDate date;
-	@ManyToMany
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="reservationTimeRel", joinColumns=@JoinColumn(name="reservationId"), inverseJoinColumns=@JoinColumn(name="timeId"))  
 	private List<TimeSlot> timeSlots;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "reserverId")
 	private Account reserver;
+	
 	private String group;
+	
 	private String members;
 	
 	public RoomReservation() { }
@@ -106,17 +110,5 @@ public class RoomReservation implements Jsonifiable {
 	}
 	public void setMembers(String members) {
 		this.members = members;
-	}
-	
-	@Override
-	public String toString() {
-		return "RoomReservation [id=" + getId() +
-				", timestamp=" + getTimestamp() +
-				", room=" + getRoom() +
-				", date=" + getDate() +
-				", timeSlots=" + getTimeSlots() +
-				", reserver=" + getReserver() +
-				", group=" + getGroup() +
-				", members=" + getMembers() + "]";
 	}
 }

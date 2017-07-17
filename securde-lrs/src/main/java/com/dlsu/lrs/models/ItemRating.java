@@ -1,22 +1,27 @@
 package com.dlsu.lrs.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.dlsu.lrs.util.Jsonifiable;
+import javax.persistence.OneToOne;
 
 @Entity
-public class ItemRating implements Jsonifiable {
+public class ItemRating {
 
 	@Id @GeneratedValue
 	private long id;
 	
-	@ManyToOne
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "itemId")
 	private Item item;
-	@ManyToOne
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "accountId")
 	private Account account;
+	
 	private int rating;
 	
 	public ItemRating() {
@@ -56,13 +61,4 @@ public class ItemRating implements Jsonifiable {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	
-	@Override
-	public String toString() {
-		return "ItemRating [id=" + getId() +
-				", item=" + getItem() +
-				", account=" + getAccount() +
-				", rating=" + getRating() + "]";
-	}
-	
 }

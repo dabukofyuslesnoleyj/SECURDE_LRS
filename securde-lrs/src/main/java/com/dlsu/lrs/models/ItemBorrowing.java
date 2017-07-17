@@ -2,35 +2,34 @@ package com.dlsu.lrs.models;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.dlsu.lrs.util.Jsonifiable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class ItemBorrowing implements Jsonifiable {
+public class ItemBorrowing {
 
 	@Id @GeneratedValue
 	private long id;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime timestamp;
 	
-	@ManyToMany
-	private List<Item> items;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "itemId")
+	private Item item;
 	
 	private LocalDate deadline;
+	
+	private boolean returned;
 
 	public ItemBorrowing() { }
-	public ItemBorrowing(List<Item> items, LocalDate deadline) {
+	public ItemBorrowing(Item item, LocalDate deadline) {
 		this();
-		setItems(items);
+		setItem(item);
 		setDeadline(deadline);
 	}
 	
@@ -48,25 +47,24 @@ public class ItemBorrowing implements Jsonifiable {
 		this.timestamp = timestamp;
 	}
 
-	public List<Item> getItems() {
-		return items;
+	public Item getItem() {
+		return item;
 	}
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItem(Item item) {
+		this.item = item;
 	}
-
+	
 	public LocalDate getDeadline() {
 		return deadline;
 	}
 	public void setDeadline(LocalDate deadline) {
 		this.deadline = deadline;
 	}
-	
-	@Override
-	public String toString() {
-		return "ItemBorrowing [id=" + getId() +
-				", timestamp=" + getTimestamp() +
-				", items=" + getItems() +
-				", deadline=" + getDeadline()  + "]";
+
+	public boolean isReturned() {
+		return returned;
+	}
+	public void setReturned(boolean returned) {
+		this.returned = returned;
 	}
 }

@@ -1,33 +1,32 @@
 package com.dlsu.lrs.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class Account implements Jsonifiable {
+public class Account extends _Prototype_AppModel {
 
 	@Id
 	private String id;
 	
 	private String username;
+	
 	private String password;
 	
 	private AccountType type = AccountType.STUDENT;
 	
 	@ElementCollection
-	private List<AccountPrivilege> privileges = new ArrayList<>();
+	private Map<AccountPrivilege, Boolean> privileges;
 	
-	@ManyToOne
-	@JoinColumn(name="academicId", nullable=false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "academicId", nullable = false)
 	private Academic academic;
 	
 	@Embedded
@@ -43,7 +42,7 @@ public class Account implements Jsonifiable {
 		setUsername(username);
 		setPassword(password);
 	}
-	public Account(String id, Academic academic, String username, String password, AccountType type, List<AccountPrivilege> privileges, AccountSecurity security) {
+	public Account(String id, Academic academic, String username, String password, AccountType type, Map<AccountPrivilege, Boolean> privileges, AccountSecurity security) {
 		this(id, academic, username, password);
 		setType(type);
 		setPrivileges(privileges);
@@ -78,20 +77,11 @@ public class Account implements Jsonifiable {
 		this.type = type;
 	}
 	
-	public List<AccountPrivilege> getPrivileges() {
+	public Map<AccountPrivilege, Boolean> getPrivileges() {
 		return privileges;
 	}
-	public void setPrivileges(List<AccountPrivilege> privileges) {
+	public void setPrivileges(Map<AccountPrivilege, Boolean> privileges) {
 		this.privileges = privileges;
-	}
-	public boolean hasPrivilege(AccountPrivilege privilege) {
-		return getPrivileges().contains(privilege);
-	}
-	public void addPrivilege(AccountPrivilege privilege) {
-		getPrivileges().add(privilege);
-	}
-	public void removePrivilege(AccountPrivilege privilege) {
-		getPrivileges().remove(privilege);
 	}
 	
 	public Academic getAcademic() {
@@ -106,16 +96,5 @@ public class Account implements Jsonifiable {
 	}
 	public void setSecurity(AccountSecurity security) {
 		this.security = security;
-	}
-	
-	@Override
-	public String toString() {
-		return "Account [id=" + id +
-				", username=" + username +
-				", password=" + password +
-				", type=" + type +
-				", privileges=" + privileges +
-				", academic=" + academic +
-				", security=" + security + "]";
 	}
 }

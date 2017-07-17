@@ -3,14 +3,14 @@ package com.dlsu.lrs.models;
 import javax.persistence.Embeddable;
 import javax.persistence.OneToOne;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Embeddable
-public class AccountSecurity implements Jsonifiable {
+public class AccountSecurity {
 
 	@OneToOne
 	private Account account;
+	
 	private String question;
+	
 	private String answer;
 	
 	public AccountSecurity() { }
@@ -42,12 +42,5 @@ public class AccountSecurity implements Jsonifiable {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}
-	
-	@Override
-	public String toString() {
-		return "AccountSecurity [account=" + getAccount() +
-				", question=" + getQuestion() +
-				", answer=" + getAnswer() + "]";
 	}
 }

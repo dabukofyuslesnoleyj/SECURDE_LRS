@@ -6,15 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.dlsu.lrs.util.Jsonifiable;
-
 @Entity
-public class TimeSlot implements Jsonifiable {
+public class TimeSlot {
 
 	@Id @GeneratedValue
 	private long id;
 	
 	private LocalTime start;
+
 	private LocalTime end;
 	
 	public TimeSlot() { }
@@ -43,11 +42,5 @@ public class TimeSlot implements Jsonifiable {
 	}
 	public void setEnd(LocalTime end) {
 		this.end = end;
-	}
-	@Override
-	public String toString() {
-		return "TimeSlot [id=" + getId() +
-				", start=" + getStart() +
-				", end=" + getEnd() + "]";
 	}
 }
