@@ -10,10 +10,10 @@
      
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+     
+     <link rel="stylesheet" type="text/css" href="css/item_page.css"/>
 </head>
 <body>
-	
 	<!-- NAV BAR AREA -->
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -31,34 +31,102 @@
 	<!--  -->
 	
 	<!-- Item Details -->
-	<div>
-		<div class="col-4">
-			<img alt="Item" src="#">
+	<div class="row">
+		<div class="col-md-2">
+			<img src="#">
 		</div>
-		<div class="col-4">
+		<div class="col-md-6">
 			<h3>Book Name</h3>
 			<p>Author</p>
 			<p>Publisher</p>
 			<p>Tag</p><button>+</button>
 		</div>
-		<div class="col-4">
+		<div class="col-md-4">
 			<h3>Score</h3>
-			<img alt="all over 10" src="#">
+			<img src="#">
 			<p>Available #</p>
 			<select name="item-select-quantity">
 				<option value="1">1</option>
-			</select><button>Borrow</button>
+			</select>
+			<button id="borrow-button" data-toggle="modal" data-target="#borrow-modal">Borrow</button>
 		</div>
 	</div>
 	<!--  -->
 	
+	<!-- Modals -->
+	<div class="modal fade" id="borrow-modal" role="dialog">
+		<div class="modal-dialog">
+			
+			<!-- Modal Content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Borrow Item</h4>
+				</div>
+				<div class="modal-body">
+					<p>Would you like to borrow [Book Name]?</p>
+				</div>
+				<div class="modal-footer">
+					<button id="borrow-modal-confirm" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-close" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="modal fade" id="review-modal" role="dialog">
+		<div class="modal-dialog">
+			
+			<!-- Modal Content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Review</h4>
+				</div>
+				<div class="modal-body">
+					<textarea name="textarea-review"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button id="borrow-modal-confirm" data-dismiss="modal">Confirm</button>
+					<button id="borrow-modal-close" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--  -->
+	
+	
 	<!-- item Reviews -->
 	<!-- Note: scrollable using CSS -->
-	<div>
-		<div class="row-1">
-			<div class="col-2"><img alt="prof-pic" src="#"></div>
-			<p>Rating</p>
-			<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+	<button id="review-button" data-toggle="modal" data-target="#review-modal">Write Review</button>
+	<div id="review-list">
+		<div class="media">
+			<div class="media-left">
+				<img alt="prof-pic" src="#" class="media-object">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Username</h4>
+				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+			</div>
+			<div class="media-right">
+				<h4>Rating</h4>
+				<p>99</p>
+			</div>
+		</div>
+		<div class="media">
+			<div class="media-left">
+				<img alt="prof-pic" src="#" class="media-object">
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">Username</h4>
+				<p>kjhjkhkhkjljhlkjjhdfdfhgjkh hgkjhlkjh jhlkj h</p>
+			</div>
+			<div class="media-right">
+				<h4>Rating</h4>
+				<p>99</p>
+			</div>
 		</div>
 	</div>
 	

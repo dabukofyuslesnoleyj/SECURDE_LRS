@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	display: block;
+	overflow-x: auto;
+}
+
+td, th {
+	border: 1px solid #000000;
+	text-align: left;
+	padding: 8px;
+}
+
+button {
+	background-color: #006635;
+	border-radius: 10px;
+	color: #FFFFFF;
+}
+
+form {
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 2.5%;
+}
+
+input[type=text], textarea, select {
+	width: 100%;
+}
+
+.time-slot {
+	background-color: #99FF99;
+}
+
+.room-reservation-form {
+	width: 90%;
+	padding-left: 5%;
+}

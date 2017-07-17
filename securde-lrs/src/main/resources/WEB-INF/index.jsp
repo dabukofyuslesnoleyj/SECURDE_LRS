@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <h1 class="text-center"><img src="rsc/img/Green Desk New.png"/></h1>
-            <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
+            <p class="text-center"><a href="#" id="modal_button"" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
             
         </div>
     </div>
@@ -32,7 +32,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" align="center">
-                        <img class="img-circle" id="img_logo" src="rsc/img/logo.jpg"/>
+                        <img class="img-circle" id="img_logo" src="rsc/img/GreenDeskLogin.png"/>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </button>
@@ -74,14 +74,19 @@
                                     <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
                                     <span id="text-register-msg">Register an account.</span>
                                 </div>
-                                <input id="register_token" class="form-control" type="text" placeholder="Given Token" required>
-                                <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-                                <input id="register_question" class="form-control" type="text" placeholder="Secret Question" required>
-                                <input id="register_answer" class="form-control" type="text" placeholder="Answer" required>
+                                <input id="register_fname" class="form-control" type="text" placeholder="First Name" required/>
+                                <input id="register_mname" class="form-control" type="text" placeholder="Middle Name" required/>
+                                <input id="register_lname" class="form-control" type="text" placeholder="Last Name" required/>
+                                <input id="register_uname" class="form-control" type="text" placeholder="Username" required/>
+                                <input id="register_idno" class="form-control" type="text" placeholder="ID Number" required/>
+                                <input id="register_bday" class="form-control" type="date"  required/>
+                                <input id="register_password" class="form-control" type="password" placeholder="Password" required/>
+                                <input id="register_question" class="form-control" type="text" placeholder="Secret Question" required/>
+                                <input id="register_answer" class="form-control" type="text" placeholder="Answer" required/>
                             </div>
                             <div class="modal-footer">
                                 <div>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="register()">Register</button>
                                 </div>
                                 <div>
                                     <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
