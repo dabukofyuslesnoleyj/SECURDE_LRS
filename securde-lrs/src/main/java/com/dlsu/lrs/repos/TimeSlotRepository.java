@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dlsu.lrs.models.TimeSlot;
 
-public interface TimeSlotRepository extends CrudRepository<TimeSlot, String> {
+public interface TimeSlotRepository extends CrudRepository<TimeSlot, Long> {
 }

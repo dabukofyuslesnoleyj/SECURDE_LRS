@@ -5,6 +5,7 @@ import javax.persistence.MappedSuperclass;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+@Deprecated
 @MappedSuperclass
 @SQLDelete(sql = "UPDATE #{#entityName} SET deleted = 1 WHERE id = ?")
 @Where(clause = "deleted = 0")

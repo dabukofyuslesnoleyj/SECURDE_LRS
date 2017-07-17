@@ -37,7 +37,7 @@ public class Item {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="itemCategoryRel", joinColumns=@JoinColumn(name="itemId"), inverseJoinColumns=@JoinColumn(name="categoryId"))  
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<ItemCategory> categories;
+	private List<ItemTag> categories;
 
 	public Item() { }
 	public Item(String name) {
@@ -57,7 +57,7 @@ public class Item {
 		setPublisher(publisher);
 		setYear(year);
 	}
-	public Item(String name, ItemType type, ItemPublisher publisher, Integer year, List<ItemAuthor> authors, List<ItemCategory> categories) {
+	public Item(String name, ItemType type, ItemPublisher publisher, Integer year, List<ItemAuthor> authors, List<ItemTag> categories) {
 		this(name, type, publisher, year, authors);
 		setCategories(categories);
 	}
@@ -107,10 +107,10 @@ public class Item {
 		return getAuthors().get(0);
 	}
 
-	public List<ItemCategory> getCategories() {
+	public List<ItemTag> getCategories() {
 		return categories;
 	}
-	public void setCategories(List<ItemCategory> categories) {
+	public void setCategories(List<ItemTag> categories) {
 		this.categories = categories;
 	}
 }

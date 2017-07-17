@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Academic extends _Prototype_AppModel {
+public class Academic {
 
 	@Id
 	private String id;

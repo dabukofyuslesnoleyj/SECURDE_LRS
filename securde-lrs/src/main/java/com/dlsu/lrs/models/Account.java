@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Account extends _Prototype_AppModel {
+public class Account {
 
 	@Id
 	private String id;

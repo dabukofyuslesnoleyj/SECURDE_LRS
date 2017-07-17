@@ -1,5 +1,6 @@
 package com.dlsu.lrs.util;
 
+@Deprecated
 public class AjaxResponse<T> implements Jsonifiable {
 
 	private Boolean success;

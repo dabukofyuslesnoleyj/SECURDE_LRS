@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dlsu.lrs.models.Room;
 
-public interface RoomRepository extends CrudRepository<Room, String> {
+public interface RoomRepository extends CrudRepository<Room, Long> {
 }

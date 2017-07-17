@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class ItemCategory {
+public class ItemTag {
 
 	@Id @GeneratedValue
 	private int id;
@@ -14,12 +14,12 @@ public class ItemCategory {
 	
 	private String description;
 	
-	public ItemCategory() { }
-	public ItemCategory(String name) {
+	public ItemTag() { }
+	public ItemTag(String name) {
 		this();
 		setName(name);
 	}
-	public ItemCategory(String name, String description) {
+	public ItemTag(String name, String description) {
 		this(name);
 		setDescription(description);
 	}

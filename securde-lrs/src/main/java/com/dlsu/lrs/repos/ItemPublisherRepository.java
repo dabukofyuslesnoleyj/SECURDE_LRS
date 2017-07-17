@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dlsu.lrs.models.ItemPublisher;
 
-public interface ItemPublisherRepository extends CrudRepository<ItemPublisher, String> {
+public interface ItemPublisherRepository extends CrudRepository<ItemPublisher, Long> {
 }
