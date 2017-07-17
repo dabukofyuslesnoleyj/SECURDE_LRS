@@ -8,7 +8,8 @@
 
         <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <link rel="stylesheet" type="text/css" href="css/login.css"/>
-        <script src="js/login.js"></script>
+        <script src="js/loginModal.js"></script>
+        <script src="js/register_login.js"></script>
 
     </head>
 

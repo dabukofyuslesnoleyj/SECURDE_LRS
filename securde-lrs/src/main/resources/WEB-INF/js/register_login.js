@@ -24,16 +24,40 @@ $(document).ready(function(){
                 y : date.getFullYear()
             },
             secret: {
-                q : $("register_question"), 
-                a : $("register_answer")
+                q : $("#register_question"), 
+                a : $("#register_answer")
             }
 
         };
 
-        $.post("res/account/register",
+        $.post("rest/account/register",
             register_info,
-            function(data, status){
-                //TODO: do this
+            function(success, status, message, data, errorData){
+                if(success){
+
+                }
+        })
+        .fail(function(){
+
+        });
+    }
+
+    function login (){
+        $.post("rest/account/register",
+            {
+                uname : $("#login_username"),
+                pass : $("#login_password")
+            },
+            function(success, status, message, data, errorData){
+                if(success){
+                    window.location.href = "http://account.jsp/";
+                }
+        })
+        .done(function(){
+            
+        })
+        .fail(function(){
+            
         });
     }
 
