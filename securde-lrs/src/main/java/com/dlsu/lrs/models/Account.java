@@ -1,5 +1,7 @@
 package com.dlsu.lrs.models;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,7 @@ public class Account {
 	@Id
 	private String id;
 	
+	@Deprecated
 	private boolean isLocked;
 	
 	private String username;
@@ -25,6 +28,8 @@ public class Account {
 	
 	@Embedded
 	private AccountSecurity security;
+	
+	private LocalDateTime expiration;
 	
 	private AccountType type = AccountType.CUSTOMER;
 	
@@ -44,12 +49,21 @@ public class Account {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
+	@Deprecated
 	public boolean isLocked() {
 		return isLocked;
 	}
+	@Deprecated
 	public void setLocked(boolean isLocked) {
 		this.isLocked = isLocked;
+	}
+	
+	public LocalDateTime getExpiration() {
+		return expiration;
+	}
+	public void setExpiration(LocalDateTime expiration) {
+		this.expiration = expiration;
 	}
 	
 	public String getUsername() {

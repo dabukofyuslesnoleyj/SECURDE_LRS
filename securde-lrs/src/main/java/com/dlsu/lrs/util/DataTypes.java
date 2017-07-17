@@ -2,6 +2,7 @@ package com.dlsu.lrs.util;
 
 import java.util.List;
 
+import com.dlsu.lrs.models.AcademicType;
 import com.dlsu.lrs.models.AccountType;
 import com.dlsu.lrs.models.ItemType;
 
@@ -64,5 +65,10 @@ public class DataTypes {
 		
 		public Long itemId;
 		public Integer rating;
+	}
+	public static class AcadIndexParams implements Jsonifiable {
+		
+		public String id;
+		public AcademicType type;
 	}
 }

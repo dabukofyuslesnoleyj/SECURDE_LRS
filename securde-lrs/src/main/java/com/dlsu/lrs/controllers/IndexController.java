@@ -42,15 +42,7 @@ public class IndexController {
 	}
 
 	@RequestMapping("search/item")
-	public String searchItem(@PathVariable("id") String id, Model model) {
-		return null;
-	}
-	@RequestMapping("search/author")
-	public String searchAuthor(
-			@RequestParam(name = "first", required = false) String firstName,
-			@RequestParam(name = "middle", required = false) String middleName,
-			@RequestParam(name = "last", required = false) String lastName,
-			Model model) {
+	public String searchItem(@RequestParam("q") String q, Model model) {
 		return null;
 	}
 }
