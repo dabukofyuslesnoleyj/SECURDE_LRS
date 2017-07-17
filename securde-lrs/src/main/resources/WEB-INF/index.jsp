@@ -74,14 +74,19 @@
                                     <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
                                     <span id="text-register-msg">Register an account.</span>
                                 </div>
-                                <input id="register_token" class="form-control" type="text" placeholder="Given Token" required>
-                                <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-                                <input id="register_question" class="form-control" type="text" placeholder="Secret Question" required>
-                                <input id="register_answer" class="form-control" type="text" placeholder="Answer" required>
+                                <input id="register_fname" class="form-control" type="text" placeholder="First Name" required/>
+                                <input id="register_mname" class="form-control" type="text" placeholder="Middle Name" required/>
+                                <input id="register_lname" class="form-control" type="text" placeholder="Last Name" required/>
+                                <input id="register_uname" class="form-control" type="text" placeholder="Username" required/>
+                                <input id="register_idno" class="form-control" type="text" placeholder="ID Number" required/>
+                                <input id="register_bday" class="form-control" type="date"  required/>
+                                <input id="register_password" class="form-control" type="password" placeholder="Password" required/>
+                                <input id="register_question" class="form-control" type="text" placeholder="Secret Question" required/>
+                                <input id="register_answer" class="form-control" type="text" placeholder="Answer" required/>
                             </div>
                             <div class="modal-footer">
                                 <div>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="register()">Register</button>
                                 </div>
                                 <div>
                                     <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
