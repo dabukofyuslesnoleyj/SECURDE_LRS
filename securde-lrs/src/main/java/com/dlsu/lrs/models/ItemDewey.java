@@ -4,14 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Dewey {
+public class ItemDewey {
 
 	@Id
 	private String id;
 	private String description;
 	
-	public Dewey() { }
-	public Dewey(String id, String description) {
+	public ItemDewey() { }
+	public ItemDewey(String id, String description) {
 		this.id = id;
 		this.description = description;
 	}

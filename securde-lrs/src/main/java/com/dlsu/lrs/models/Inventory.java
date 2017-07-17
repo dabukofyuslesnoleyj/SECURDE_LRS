@@ -17,7 +17,7 @@ public class Inventory {
 	private Item item;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Dewey location;
+	private ItemDewey location;
 	
 	private int total;
 	
@@ -28,16 +28,16 @@ public class Inventory {
 		this();
 		setItem(item);
 	}
-	public Inventory(Item item, Dewey location) {
+	public Inventory(Item item, ItemDewey location) {
 		this(item);
 		setLocation(location);
 	}
-	public Inventory(Item item, Dewey location, int count) {
+	public Inventory(Item item, ItemDewey location, int count) {
 		this(item, location);
 		setTotal(count);
 		setAvailable(count);
 	}
-	public Inventory(Item item, Dewey location, int total, int available) {
+	public Inventory(Item item, ItemDewey location, int total, int available) {
 		this(item, location);
 		setTotal(total);
 		setAvailable(available);
@@ -57,10 +57,10 @@ public class Inventory {
 		this.item = item;
 	}
 	
-	public Dewey getLocation() {
+	public ItemDewey getLocation() {
 		return location;
 	}
-	public void setLocation(Dewey location) {
+	public void setLocation(ItemDewey location) {
 		this.location = location;
 	}
 	

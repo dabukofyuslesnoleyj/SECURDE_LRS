@@ -29,6 +29,8 @@ public class Item {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "publisherId")
 	private ItemPublisher publisher;
+	
+	private ItemDewey location;
 
 	private ItemType type = ItemType.BOOK;
 	
@@ -87,6 +89,13 @@ public class Item {
 	}
 	public void setPublisher(ItemPublisher publisher) {
 		this.publisher = publisher;
+	}
+	
+	public ItemDewey getLocation() {
+		return location;
+	}
+	public void setLocation(ItemDewey location) {
+		this.location = location;
 	}
 	
 	public ItemType getType() {
