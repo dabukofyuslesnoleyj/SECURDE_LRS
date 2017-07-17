@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dlsu.lrs.constants.SessionKeys;
@@ -26,48 +27,31 @@ public class AccountRestController {
 	
 	@Autowired
 	private AccountRepository accountRepo;
-	@Autowired
-	private TokenRepository tokenRepo;
-	
-	@RequestMapping("login")
-	public ResponseEntity<?> login(@RequestBody LoginParams params, HttpSession session) {
-		Account account = (Account) session.getAttribute(SessionKeys.LOGGED_IN_ACCOUNT_ID);
-		if(account != null)
-			return new AjaxResponseEntity<Object>(HttpStatus.CONFLICT) {{
-				getBody().setErrorData("User alread logged in");
-			}};
-		account = accountRepo.findByUsernameAndPassword(params.username, params.password);
-		if(account == null)
-			return new AjaxResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		// TODO Session logic here
-		return new AjaxResponseEntity<>(HttpStatus.OK);
-	}
-	
-	@RequestMapping("/register")
-	public ResponseEntity<?> register(@RequestBody AccountProxy params) {
-		Token token = tokenRepo.findByToken(params.token);
-		if(token == null)
-			return new AjaxResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		if(params.password == null || !params.password.matches("[\\w]{4,10}"))
-			return new AjaxResponseEntity<Object>(HttpStatus.EXPECTATION_FAILED) {{
-				getBody().setErrorData("Invalid password structure");
-			}};
-		if(params.password != params.confirmPassword)
-			return new AjaxResponseEntity<Object>(HttpStatus.EXPECTATION_FAILED) {{
-				getBody().setErrorData("Wrong confirm password");
-			}};
-		Account account = new Account() {{
-			Academic academic = token.getAcademic();
-			AccountType type = token.getType();
-			String password = params.password;
 
-			setId(type + "-" + academic.getId());
-			setPassword(password);
-			setAcademic(academic);
-			
-			// TODO Register logic here
-		}};
-		accountRepo.save(account);
-		return new AjaxResponseEntity<>(HttpStatus.OK);
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<?> accessAccount(HttpSession session) {
+		return null;
+	}
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<?> createAccount(HttpSession session) {
+		return null;
+	}
+	@RequestMapping(value = "", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateAccount(HttpSession session) {
+		return null;
+	}
+	@RequestMapping(value = "", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteAccount(HttpSession session) {
+		return null;
+	}
+
+	@RequestMapping("/login")
+	public ResponseEntity<?> login(HttpSession session) {
+		return null;
+	}
+	@RequestMapping("/logout")
+	public ResponseEntity<?> logout(HttpSession session) {
+		return null;
 	}
 }
