@@ -3,6 +3,9 @@
  */
 
 $(function() {
+	
+	//NEED TO MAKE ON FUNCTION TO RETRIEVE NUMBER OF ROOMS FROM DATABASE
+	
 	$(".room-reservation-table").find(".time-slot").each(function() {
 		var state = $(this).data("state");
 		
