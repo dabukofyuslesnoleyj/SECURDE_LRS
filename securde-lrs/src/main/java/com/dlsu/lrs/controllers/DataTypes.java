@@ -40,7 +40,7 @@ public class DataTypes {
 		public List<NameData> authors;
 		public List<String> tags;
 	}
-	public static class AccoutProxy {
+	public static class AccountProxy {
 
 		public String id, uname, pass, email;
 		public NameData name;
@@ -63,6 +63,6 @@ public class DataTypes {
 	public static class RatingParams {
 		
 		public Long itemId;
-		public String rating;
+		public Integer rating;
 	}
 }

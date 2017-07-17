@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dlsu.lrs.constants.KeyConstants;
+import com.dlsu.lrs.constants.SessionKeys;
 import com.dlsu.lrs.controllers.DataTypes.LoginParams;
-import com.dlsu.lrs.controllers.DataTypes.AccoutProxy;
+import com.dlsu.lrs.controllers.DataTypes.AccountProxy;
 import com.dlsu.lrs.models.Academic;
 import com.dlsu.lrs.models.Account;
 import com.dlsu.lrs.models.AccountType;
@@ -31,7 +31,7 @@ public class AccountRestController {
 	
 	@RequestMapping("login")
 	public ResponseEntity<?> login(@RequestBody LoginParams params, HttpSession session) {
-		Account account = (Account) session.getAttribute(KeyConstants.SESSION_ATTRIB_KEY_ACCOUNTLOGGEDIN);
+		Account account = (Account) session.getAttribute(SessionKeys.LOGGED_IN_ACCOUNT_ID);
 		if(account != null)
 			return new AjaxResponseEntity<Object>(HttpStatus.CONFLICT) {{
 				getBody().setErrorData("User alread logged in");
@@ -44,7 +44,7 @@ public class AccountRestController {
 	}
 	
 	@RequestMapping("/register")
-	public ResponseEntity<?> register(@RequestBody AccoutProxy params) {
+	public ResponseEntity<?> register(@RequestBody AccountProxy params) {
 		Token token = tokenRepo.findByToken(params.token);
 		if(token == null)
 			return new AjaxResponseEntity<>(HttpStatus.UNAUTHORIZED);

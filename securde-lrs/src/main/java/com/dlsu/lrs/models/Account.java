@@ -26,7 +26,7 @@ public class Account {
 	@Embedded
 	private AccountSecurity security;
 	
-	private AccountType type = AccountType.STUDENT;
+	private AccountType type = AccountType.CUSTOMER;
 	
 	public Account() { }
 	public Account(String id, String username, String password, Academic academic, AccountSecurity security, AccountType type) {

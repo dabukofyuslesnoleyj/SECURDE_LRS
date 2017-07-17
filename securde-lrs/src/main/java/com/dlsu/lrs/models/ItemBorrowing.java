@@ -15,43 +15,51 @@ public class ItemBorrowing {
 
 	@Id @GeneratedValue
 	private long id;
+
+	private boolean isReturned;
 	
 	private LocalDateTime timestamp;
 	
+	private LocalDate deadline;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "borrowerId")
+	private Account borrower;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "itemId")
 	private Item item;
-	
-	private LocalDate deadline;
-	
-	private boolean returned;
 
-	public ItemBorrowing() { }
-	public ItemBorrowing(Item item, LocalDate deadline) {
-		this();
-		setItem(item);
-		setDeadline(deadline);
+	public ItemBorrowing() {
+		this.timestamp = LocalDateTime.now();
 	}
-	
+	public ItemBorrowing(LocalDate deadline, Account borrower, Item item) {
+		this.timestamp = LocalDateTime.now();
+		this.deadline = deadline;
+		this.borrower = borrower;
+		this.item = item;
+	}
+
+
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	
+	public boolean isReturned() {
+		return isReturned;
+	}
+	public void setReturned(boolean returned) {
+		this.isReturned = returned;
+	}
+	
 	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
 	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-	public void setItem(Item item) {
-		this.item = item;
 	}
 	
 	public LocalDate getDeadline() {
@@ -60,11 +68,18 @@ public class ItemBorrowing {
 	public void setDeadline(LocalDate deadline) {
 		this.deadline = deadline;
 	}
-
-	public boolean isReturned() {
-		return returned;
+	
+	public Account getBorrower() {
+		return borrower;
 	}
-	public void setReturned(boolean returned) {
-		this.returned = returned;
+	public void setBorrower(Account borrower) {
+		this.borrower = borrower;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
 	}
 }

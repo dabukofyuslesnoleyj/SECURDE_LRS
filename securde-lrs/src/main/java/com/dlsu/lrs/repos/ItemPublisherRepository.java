@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.dlsu.lrs.models.ItemPublisher;
 
 public interface ItemPublisherRepository extends CrudRepository<ItemPublisher, Long> {
+	
+	ItemPublisher findByNameIgnoreCase(String name);
 }

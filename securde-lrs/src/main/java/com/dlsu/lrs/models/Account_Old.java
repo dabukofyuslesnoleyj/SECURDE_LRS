@@ -21,7 +21,7 @@ public class Account_Old {
 	
 	private String password;
 	
-	private AccountType type = AccountType.STUDENT;
+	private AccountType type = AccountType.CUSTOMER;
 	
 	@ElementCollection
 	private Map<AccountPrivilege, Boolean> privileges;
