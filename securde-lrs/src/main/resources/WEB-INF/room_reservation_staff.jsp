@@ -14,6 +14,66 @@
 	<link rel="stylesheet" type="text/css" href="css/room_reservation_staff.css"/>
 </head>
 <body>
-
+	<!-- NAV BAR AREA -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">GreenDesk</a>
+			</div>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="#">Manage Items</a></li>
+			<li><a href="#">Rooms</a></li>
+			<li><a href="#">Account</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</nav>
+	<!--  -->
+	
+	<h3 id="reservation-list-header">Rooms</h3>
+	<div id="reservation-list-container">
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">Room #</h4>
+				<p>No Reservations</p>
+			</div>
+			<div class="media-right">
+				<button>Disable Room</button>
+			</div>
+		</div>
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">Room #</h4>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+			</div>
+			<div class="media-right">
+				<button>Disable Room</button>
+			</div>
+		</div>
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">Room #</h4>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+			</div>
+			<div class="media-right">
+				<button>Disable Room</button>
+			</div>
+		</div>
+		<div class="media">
+			<div class="media-body">
+				<h4 class="media-heading">Room #</h4>
+				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
+			</div>
+			<div class="media-right">
+				<button>Disable Room</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
