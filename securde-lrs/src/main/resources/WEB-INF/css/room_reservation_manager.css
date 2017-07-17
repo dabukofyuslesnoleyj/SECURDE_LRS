@@ -1,1 +1,24 @@
 @CHARSET "ISO-8859-1";
+
+button {
+	background-color: #006635;
+	border-radius: 10px;
+	color: #FFFFFF;
+}
+
+.media {
+	padding: 5px;
+}
+
+.media:nth-child(even) {
+	background-color: #99FF99;
+}
+
+#reservation-list-header {
+	margin-left: 15%;
+}
+
+#reservation-list-container {
+	width: 70%;
+	margin-left: 15%;
+}
