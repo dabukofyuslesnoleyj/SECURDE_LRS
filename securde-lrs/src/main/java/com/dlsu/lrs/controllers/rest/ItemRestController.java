@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dlsu.lrs.controllers.DataTypes.ItemProxy;
 import com.dlsu.lrs.models.Item;
 import com.dlsu.lrs.repos.ItemRepository;
 import com.dlsu.lrs.util.ajax.AjaxResponseEntity;
@@ -18,10 +19,6 @@ import com.dlsu.lrs.util.ajax.AjaxResponseEntity;
 @RestController
 @RequestMapping("rest/item")
 public class ItemRestController {
-	
-	public static class ItemProxy {
-		
-	}
 	
 	@Autowired
 	private ItemRepository itemRepo;

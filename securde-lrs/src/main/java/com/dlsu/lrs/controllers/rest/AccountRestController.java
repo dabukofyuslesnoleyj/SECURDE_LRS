@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dlsu.lrs.constants.KeyConstants;
+import com.dlsu.lrs.controllers.DataTypes.LoginParams;
+import com.dlsu.lrs.controllers.DataTypes.RegisterParams;
 import com.dlsu.lrs.models.Academic;
 import com.dlsu.lrs.models.Account;
 import com.dlsu.lrs.models.AccountType;
@@ -21,15 +23,6 @@ import com.dlsu.lrs.util.ajax.AjaxResponseEntity;
 @RestController
 @RequestMapping("rest/account")
 public class AccountRestController {
-
-	public static class LoginParams {
-		
-		public String username, password;
-	}
-	public static class RegisterParams {
-		
-		public String token, password, confirmPassword;
-	}
 	
 	@Autowired
 	private AccountRepository accountRepo;
