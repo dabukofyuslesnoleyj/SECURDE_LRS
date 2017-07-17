@@ -40,7 +40,6 @@ public class ItemBorrowing {
 		this.item = item;
 	}
 
-
 	public long getId() {
 		return id;
 	}

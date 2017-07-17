@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import com.dlsu.lrs.models.Academic;
 import com.dlsu.lrs.models.AcademicType;
 import com.dlsu.lrs.models.Account;
+import com.dlsu.lrs.models.AccountSecurity;
+import com.dlsu.lrs.models.AccountType;
 import com.dlsu.lrs.repos.AcademicRepository;
 import com.dlsu.lrs.repos.AccountRepository;
 
@@ -25,23 +27,23 @@ public class SecurdeLrsApplication {
 	@Bean
 	public CommandLineRunner demo(AcademicRepository acad, AccountRepository acc) {
 		return args -> {
-
-			acad.save(new Academic("11415959", "Jose", "Romabiles", "Ople"));
-			acad.save(new Academic("11515959", "Jaena", "Roma", "People"));
-			acad.save(new Academic("9945982347", "Maria", "Si", "Nukuan", AcademicType.FACULTY));
 			
-//			LOG.info("-----------------------");
-//			LOG.info("Perform: acad.findAll()");
-//			for(Academic a : acad.findAll())
-//				LOG.info(a.toString());
+			Academic a = new Academic("11415959", "Jose", "Romabiles", "Ople", AcademicType.STAFF);
+			acad.save(a);
+			
+			Account b = new Account(AccountType.ADMIN + a.getId(), "SK", "1234", a, new AccountSecurity("All for One", "One for All"), AccountType.ADMIN);
+			acc.save(b);
 
-			acc.save(new Account("paxromana", acad.findOne("11415959"), "SolitaryKnife", "123456789"));
-			acc.save(new Account("aromana", acad.findOne("11415959"), "SolitaryKnife2", "123456789"));
-		
-			LOG.info("-----------------------");
-			LOG.info("Perform: acad.findAll()");
-			for(Academic a : acad.findAll())
-				LOG.info(a.toString());
+			LOG.info("--------------------------------------");
+			LOG.info("--------------------------------------");
+			for(Academic e : acad.findAll())
+				System.out.println(e.getFirstName() + " " + e.getLastName());
+			LOG.info("--------------------------------------");
+			for(Account e : acc.findAll())
+				System.out.println(e.getUsername() + " : " + e.getPassword());
+
+			LOG.info("--------------------------------------");
+			LOG.info("--------------------------------------");
 		};
 	}
 }

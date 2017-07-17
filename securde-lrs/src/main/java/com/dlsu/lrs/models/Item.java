@@ -29,7 +29,9 @@ public class Item {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "publisherId")
 	private ItemPublisher publisher;
-	
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "dewey")
 	private ItemDewey location;
 
 	private ItemType type = ItemType.BOOK;

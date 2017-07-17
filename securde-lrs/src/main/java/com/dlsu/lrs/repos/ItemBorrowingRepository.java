@@ -12,8 +12,8 @@ import com.dlsu.lrs.models.ItemBorrowing;
 
 public interface ItemBorrowingRepository extends CrudRepository<ItemBorrowing, Long> {
 
-	@Query("SELECT * " +
-			"FROM #entityName b " +
-			"WHERE b.borrowerId = _1.id AND b.itemId = _2.id AND b.isReturned = 1")
+	@Query("SELECT b " +
+			"FROM ItemBorrowing b " +
+			"WHERE b.borrower = :_1 AND b.item = :_2 AND b.isReturned = 1")
 	List<ItemBorrowing> findReturnedItemsByBorrowerAndItem(@Param("_1") Account borrower, @Param("_2") Item item);
 }

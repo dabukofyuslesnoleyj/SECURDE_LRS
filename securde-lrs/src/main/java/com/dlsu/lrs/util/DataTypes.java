@@ -1,4 +1,4 @@
-package com.dlsu.lrs.controllers;
+package com.dlsu.lrs.util;
 
 import java.util.List;
 
@@ -8,30 +8,30 @@ import com.dlsu.lrs.models.ItemType;
 public class DataTypes {
 	
 	// Data
-	public static class NameData {
+	public static class NameData implements Jsonifiable {
 		
 		public String f, m, l;
 	}
-	public static class BDayData {
+	public static class BDayData implements Jsonifiable {
 		
-		public Integer f, m, l;
+		public Integer d, m, y;
 	}
-	public static class SecretData {
+	public static class SecretData implements Jsonifiable {
 		
-		public Integer q, a;
+		public String q, a;
 	}
 
 	// Model proxy
-	public static class AuthorProxy {
+	public static class AuthorProxy implements Jsonifiable {
 		
 		public Long id;
 	}
-	public static class PublisherProxy {
+	public static class PublisherProxy implements Jsonifiable {
 		
 		public Long id;
 		public String name;
 	}
-	public static class ItemProxy {
+	public static class ItemProxy implements Jsonifiable {
 		
 		public Long id;
 		public String name, desc, publisher;
@@ -40,7 +40,7 @@ public class DataTypes {
 		public List<NameData> authors;
 		public List<String> tags;
 	}
-	public static class AccountProxy {
+	public static class AccountProxy implements Jsonifiable {
 
 		public String id, uname, pass, email;
 		public NameData name;
@@ -50,17 +50,17 @@ public class DataTypes {
 	}
 	
 	// Parameters
-	public static class LoginParams {
+	public static class LoginParams implements Jsonifiable {
 		
 		public String uname, pass;
 	}
 
-	public static class ReviewParams {
+	public static class ReviewParams implements Jsonifiable {
 		
 		public Long itemId;
 		public String review;
 	}
-	public static class RatingParams {
+	public static class RatingParams implements Jsonifiable {
 		
 		public Long itemId;
 		public Integer rating;

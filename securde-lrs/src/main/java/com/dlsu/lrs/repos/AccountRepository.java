@@ -7,4 +7,5 @@ import com.dlsu.lrs.models.Account;
 public interface AccountRepository extends CrudRepository<Account, String> {
 	
 	Account findByUsernameAndPassword(String username, String password);
+	Account findByUsernameIgnoreCase(String username);
 }
