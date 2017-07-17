@@ -1,0 +1,105 @@
+Generic Ajax Message
+{
+	success: true/false,
+	status: 200/500,
+	message: "String",
+	data: "any object",
+	errorData: "any object"
+}
+
+200 - OK
+202 - Accepted
+205 - No Content
+201 - Created (e.g. register, new item, new account)
+400 - Bad Request (e.g. wrong syntax)
+401 - Unauthorized (e.g. wrong authnetication, worng password/username)
+403 - Forbidden (e.g. access control)
+404 - Not Found
+409 - Conflict (create new item but id already exist)
+500 - Internal server error
+503 - service unavailable (not implemented yet)
+
+Register
+{
+	name: {f, m, l},
+	uname,
+	pass,
+	email,
+	id,
+	bday: {d, m, y}
+	secret: {q, a}
+}
+Update Account
+{
+	pass
+}
+Login
+{
+	uname, pass
+}
+Review
+{
+	itemId, review
+}
+Rating
+{
+	itemId, rating
+}
+Item Borrowing
+{
+	itemId
+}
+Room reserving
+{
+	roomId, slots: [] 
+}
+Edit/Add book
+{
+	itemId, type, name, desc, publisher, year,
+	authors: [
+		{f, m, l}
+	],
+	tags: []
+}
+Delete item
+{
+	itemId
+}
+Availability of Meeting room
+{
+	roomId, available
+}
+Override Reservation
+{
+	reserveId
+}
+
+Unlock
+{
+	accountId
+}
+
+
+TimeSlots Available
+{
+	roomId
+}
+[
+	{id, startH, startM, endH, endM}
+]
+
+Search items
+{
+	keyword
+}
+[
+	{
+		id, name, type, desc, year, publisher, authors: [], tags[]
+	}
+]
+
+
+AcademicType add STAFF
+Room add boolean available
+Book add String description
+ItemCategory change name ItemTag
