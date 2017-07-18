@@ -4,8 +4,8 @@
         <script src="utils/jquery-3.2.1.min.js"></script>
         <script src="utils/bootstrap/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/staff_item.css"/>
-        <script src="js/staff_item.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/staff_item_page.css"/>
+        <script src="js/staff_item_page.js"></script>
     </head>
 
     <body>
@@ -27,7 +27,20 @@
                         <span class="input-group-addon">Name</span>
                         <input id="edit_name" type="text" class="form-control" name="edit_name" placeholder="Edit Item Name">
                     </div>
-                    
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Authors</span>
+                        <input id="authors_name" type="text" class="form-control" name="authors_name" placeholder="Edit Authors">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        <input id="tags_name" type="text" class="form-control" name="tags_name" placeholder="Edit Tags">
+                    </div>
+
+                    <textarea>
+                    </textarea>
+
                 </form>
             </div>
             <div class="modal-footer">
