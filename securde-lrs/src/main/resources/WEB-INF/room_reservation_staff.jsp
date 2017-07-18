@@ -32,48 +32,48 @@
 	
 	<h3 id="room-list-header">Rooms</h3>
 	<div id="room-list-container">
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>No Reservations</p>
-			</div>
-			<div class="media-right">
-				<button>Disable Room</button>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Disable Room</button>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Disable Room</button>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Disable Room</button>
-			</div>
-		</div>
+<!-- 		<div class="media"> -->
+<!-- 			<div class="media-body"> -->
+<!-- 				<h4 class="media-heading">Room #</h4> -->
+<!-- 				<p>No Reservations</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="media-right"> -->
+<!-- 				<button>Disable Room</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="media"> -->
+<!-- 			<div class="media-body"> -->
+<!-- 				<h4 class="media-heading">Room #</h4> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="media-right"> -->
+<!-- 				<button>Disable Room</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="media"> -->
+<!-- 			<div class="media-body"> -->
+<!-- 				<h4 class="media-heading">Room #</h4> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="media-right"> -->
+<!-- 				<button>Disable Room</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="media"> -->
+<!-- 			<div class="media-body"> -->
+<!-- 				<h4 class="media-heading">Room #</h4> -->
+<!-- 				<p>XX:00 - XX:00 Lastname, Firstname M.</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="media-right"> -->
+<!-- 				<button>Disable Room</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 	</div>
 </body>
 </html>
