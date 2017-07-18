@@ -68,12 +68,12 @@ $(function() {
 		}
 		
 		var formData = {
-			"roomId": $("input[name=last-name]").val(),
-			"slots": selected,
-			"lastname": $("input[name=last-name]").val(),
-			"firstname": $("input[name=first-name]").val(),
-			"middleInitial": $("input[name=middle-initial").val(),
-			"attendeeCount": $("name=room-attendee-count").val()
+			roomId: $("input[name=last-name]").val(),
+			slots: selected,
+			lastname: $("input[name=last-name]").val(),
+			firstname: $("input[name=first-name]").val(),
+			middleInitial: $("input[name=middle-initial").val(),
+			attendeeCount: $("name=room-attendee-count").val()
 		};
 		
 		$.ajax({

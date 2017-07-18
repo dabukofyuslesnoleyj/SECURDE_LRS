@@ -58,6 +58,9 @@
 				<button id="borrow-button" data-toggle="modal" data-target="#borrow-modal">Borrow</button>
 			</div>
 		</div>
+		<div class="row">
+			<p id="item_desc">Insert Description here</p>
+		</div>
 	</div>
 	
 	<!--  -->

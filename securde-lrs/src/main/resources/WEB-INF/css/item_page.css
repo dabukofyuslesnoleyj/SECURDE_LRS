@@ -13,3 +13,8 @@ button {
 .media:nth-child(even) {
 	background-color: #99FF99;
 }
+
+#item_desc{
+	height: 20%;
+	border: 1px solid #DDD;
+}
