@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+button {
+	background-color: #006635;
+	border-radius: 10px;
+	color: #FFFFFF;
+}
+
+.media {
+	padding: 5px;
+}
+
+.media:nth-child(even) {
+	background-color: #99FF99;
+}
+
+#item_desc{
+	height: 20%;
+	border: 1px solid #DDD;
+}

@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "cookie.sessionId",
+  "type": "java.lang.String",
+  "description": "A description for 'cookie.sessionId'"
+}]}
