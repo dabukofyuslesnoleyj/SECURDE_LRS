@@ -61,35 +61,35 @@
 				<th>19:00</th>
 				<th>19:30</th>
 			</tr>
-			<tr>
-				<th>E101</th>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-				<td class="time-slot" state="0"></td>
-			</tr>
+<!-- 			<tr> -->
+<!-- 				<th>E101</th> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 			</tr> -->
 		</table>
 		<form>
 			Last Name: <input type="text" name="last-name"> <br>
@@ -107,7 +107,7 @@
 			Attendee Names <br>
 			<textarea rows="3" cols="50" name="room-attendees"></textarea>
 			<br>
-			<button name="submit-booking">Submit</button>
+			<button name="submit-booking" type="submit">Submit</button>
 			<button name="cancel-booking">Cancel</button>
 		</form>
 	</div>

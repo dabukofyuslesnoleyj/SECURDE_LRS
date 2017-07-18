@@ -46,7 +46,12 @@
 			<div class="col-md-4">
 				<h3>Score</h3>
 				<img src="#">
-				<p>Available #</p>
+				<div class="row">
+					<div class="col-md-4"><p id="item_available">Available #</p></div>
+					<div class="col-md-4"><p id="item_reserved">Reserved #</p></div>
+					<div class="col-md-4"><p id="item_out">Out #</p></div>
+				</div>
+				
 				<select name="item-select-quantity">
 					<option value="1">1</option>
 				</select>
@@ -89,7 +94,7 @@
 					<h4 class="modal-title">Review</h4>
 				</div>
 				<div class="modal-body">
-					<textarea name="textarea-review"></textarea>
+					<textarea name="textarea-review" class="form-control" id="review_text"></textarea>
 				</div>
 				<div class="modal-footer">
 					<button id="borrow-modal-confirm" data-dismiss="modal">Confirm</button>
