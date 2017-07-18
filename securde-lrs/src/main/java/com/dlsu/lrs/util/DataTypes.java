@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dlsu.lrs.models.AcademicType;
 import com.dlsu.lrs.models.AccountType;
+import com.dlsu.lrs.models.ItemStatus;
 import com.dlsu.lrs.models.ItemType;
 
 public class DataTypes {
@@ -38,6 +39,7 @@ public class DataTypes {
 		public String name, desc, publisher;
 		public Integer year;
 		public ItemType type;
+		public ItemStatus status;
 		public List<NameData> authors;
 		public List<String> tags;
 	}

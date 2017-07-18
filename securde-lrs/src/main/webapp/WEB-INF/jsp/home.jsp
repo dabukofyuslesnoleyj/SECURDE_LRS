@@ -6,6 +6,20 @@
         <script src="utils/jquery-3.2.1.min.js"></script>
         <script src="utils/bootstrap/js/bootstrap.min.js"></script>
 
+		<script>
+			function logout() {
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:9000/rest/account/logout",
+					contentType: "application/json",
+					dataType: "json"
+				}).done((resp) => {
+					window.location.reload(true);
+				}).fail((xhr) => {
+					alert("Fail to Logout");
+				})
+			}
+		</script>
         <link rel="stylesheet" type="text/css" href="css/home.css"/>
 
     </head>
@@ -20,10 +34,10 @@
                 </div>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Borrow</a></li>
+                <li><a href="/itemlist">Borrow</a></li>
                 <li><a href="#">Reserve</a></li>
                 <li><a href="#">Account</a></li>
-                <li><a href="#">Logout</a></li>
+                <li onclick="logout()"><a href="#">Logout</a></li>
             </ul>
         </nav>
         <!--  -->

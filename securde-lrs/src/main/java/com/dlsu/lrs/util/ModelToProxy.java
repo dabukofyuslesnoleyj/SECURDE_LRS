@@ -3,12 +3,10 @@ package com.dlsu.lrs.util;
 import java.util.ArrayList;
 
 import com.dlsu.lrs.models.Account;
-import com.dlsu.lrs.models.AccountType;
 import com.dlsu.lrs.models.Item;
 import com.dlsu.lrs.models.ItemAuthor;
 import com.dlsu.lrs.models.ItemTag;
 import com.dlsu.lrs.util.DataTypes.AccountProxy;
-import com.dlsu.lrs.util.DataTypes.BDayData;
 import com.dlsu.lrs.util.DataTypes.ItemProxy;
 import com.dlsu.lrs.util.DataTypes.NameData;
 import com.dlsu.lrs.util.DataTypes.SecretData;
@@ -23,6 +21,7 @@ public class ModelToProxy {
 		result.publisher = item.getPublisher().getName();
 		result.year = item.getYear();
 		result.type = item.getType();
+		result.status = item.getStatus();
 		
 		result.authors = new ArrayList<>();
 		for(ItemAuthor a : item.getAuthors()) {

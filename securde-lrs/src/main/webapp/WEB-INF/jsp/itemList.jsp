@@ -6,6 +6,7 @@
          <link rel="stylesheet" type="text/css" href="utils/bootstrap/css/bootstrap.min.css"/>
         <script src="utils/jquery-3.2.1.min.js"></script>
         <script src="utils/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/itemList.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/itemList.css"/>
 
@@ -99,6 +100,18 @@
         </div>
 
         </div>
+        <table class="table table-striped" id="item-list">
+        	<thead>
+        		<tr>
+        			<td>Name</td>
+        			<td>Description</td>
+        			<td>Status</td>
+        			<td>Control</td>
+        		</tr>
+        	</thead>
+        	<tbody id="item-list-body">
+        	</tbody>
+        </table>
 
     </body>
 

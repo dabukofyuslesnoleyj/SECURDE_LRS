@@ -19,8 +19,7 @@
     <div class="container">
         <div class="row">
             <h1 class="text-center"><img src="rsc/img/Green Desk New.png"/></h1>
-            <p class="text-center"><a href="#" id="modal_button"" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
-            
+            <p class="text-center"><a href="#" id="modal_button" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
         </div>
     </div>
     <h1 class="text-center"><img id="skylineImg" src="rsc/img/skyline.png"/></h1>

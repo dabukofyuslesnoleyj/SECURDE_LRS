@@ -181,12 +181,13 @@ public class AccountRestController {
 		if(accountRepo.findByUsernameIgnoreCase(params.uname) != null)
 			return new AjaxResponseEntity<>(HttpStatus.CONFLICT).setErrorData("Username exists");
 
+		System.out.println(params.toJson());
 		academic.setFirstName(params.name.f);
 		academic.setMiddleName(params.name.m);
 		academic.setLastName(params.name.l);
 		academic.setEmail(params.email);
-		academic.setBirthday(LocalDate.of(params.bday.y, params.bday.m, params.bday.d));
-
+		if(params.bday != null)
+			academic.setBirthday(LocalDate.of(params.bday.y, params.bday.m, params.bday.d));
 		Account account = new Account();
 		account.setId(AccountType.CUSTOMER + academic.getId());
 		account.setAcademic(academic);

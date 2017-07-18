@@ -42,8 +42,28 @@ function initList(){
                 </div>
             </div>
 */
-$(document).ready(function(){
-
-
+$(document).ready(() => {
+	console.log("Initializing List")
+	$.ajax({
+		type: "GET",
+		url: "http://localhost:9000/rest/item/all",
+		contentType: "application/json",
+		dataType: "json"
+	}).done((resp) => {
+		console.log(resp);
+		let items = resp.data;
+		let html = "";
+		for(i of items) {
+			html += "<tr>";
+			html += "<td>" + i.name + "</td>";
+			html += "<td>" + i.desc + "</td>";
+			html += "<td>" + i.status + "</td>";
+			html += "<td><a href='http://localhost:9000/rest/item/borrow" + i.id +"'>Borrow<a/></td>";
+			html += "</tr>";
+		}
+		$("#item-list-body").html(html);
+	}).fail((xhr) => {
+		msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "error", "glyphicon-remove", "Register error");
+	})
 
 });
