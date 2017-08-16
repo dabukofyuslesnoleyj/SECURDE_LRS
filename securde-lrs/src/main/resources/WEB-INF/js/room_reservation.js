@@ -2,11 +2,12 @@
  * 
  */
 
-var slots = 0;
+var slots = new Array();
+var roomId = 0;
 
 $(function() {
 	
-	$("#room-reservation-table").onload(fill_table());
+	$(".room-reservation-table").onload(fill_table());
 	
 	$(".room-reservation-table").find(".time-slot").each(function() {
 		var state = $(this).data("state");
@@ -26,63 +27,64 @@ $(function() {
 	});
 	
 	$(".time-slot").on("click", function(){
-		var state = $(this).data("state");
+		var slot = $(this);
+		var state = slot.data("state");
 		
 		if(state == 0) {
-			$(this).css({
-				"background-color": "#006635"
-			});
-			$(this).data("state", "1");
+			if(roomId == 0)
+				roomId = slot.data("roomId");
 			
-			slots++;
-			if(slots <= 4 && slots > 0) {
-				$(this).data("selected", slots);
+			if(roomId == slot.data("roomId")){
+				if(slots.length <= 4 && slots.length > 0) {
+					$(this).css({
+						"background-color": "#00FF00"
+					});
+					$(this).data("state", "2");
+					
+					slots.push(slot.getAttribute("id"));
+				}
+				else {
+					alert("Cannot reserve slot.");
+				}
 			}
-			else {
-				alert("Cannot reserve more that 4 slots.");
-				slots--;
-			}
+			else
+				alert("Slots must be in the same room.");
 		}
-		else if( $(this).data("selected") > 0 && $(this).data("selected") <= 4 ){
+		else if( state == 2 ){
 			$(this).css({
 				"background-color": "#99FF99"
 			});
 			$(this).data("state", "0");
 			
-			$(this).data("selected", 0);
-			slots--;
+			slots.splice(slots.indexOf(data.getAttribute("id")), 1);
 		}
 	});
 	
-	$("form").submit(function(event) {
-		var selected = new Array();
-		
-		for( var i = 0; i < slots; i++ ) {
-			selected[i] = {
-				"id": $("[selected=" + (i+1) + "]").data("roomId"),
-				"startH": $("[selected=" + (i+1) + "]").data("startH"),
-				"startM": $("[selected=" + (i+1) + "]").data("startM"),
-				"endH": $("[selected=" + (i+1) + "]").data("endH"),
-				"endM": $("[selected=" + (i+1) + "]").data("endM")
-			}
+	$("#room-reservation-button").onclick(reserve_slots());
+});
+
+function reserve_slots() {
+	var reservedSlots = new Array();
+	
+	if( slots.length > 0 && slots.length <= 4 ) {
+		for(var i = 0; i < slots.length; i++) {
+			reservedSlots[i] = {
+				"roomId": $("#" + slots[i]).data("roomId"),
+				"startH": $("#" + slots[i]).data("startH"),
+				"startM": $("#" + slots[i]).data("startM")
+			};
 		}
 		
-		var formData = {
-			roomId: $("input[name=last-name]").val(),
-			slots: selected,
-			lastname: $("input[name=last-name]").val(),
-			firstname: $("input[name=first-name]").val(),
-			middleInitial: $("input[name=middle-initial").val(),
-			attendeeCount: $("name=room-attendee-count").val()
-		};
-		
 		$.ajax({
+			url: "/",
 			type: "POST",
-			url: "/some/URL",
-			data: formData
+			data: {
+				roomId: roomId,
+				slots: JSON.stringify(reservedSlots)
+			}
 		});
-	});
-});
+	}
+}
 
 function fill_table() {
 	for(var i = 1; i <= 5; i++) {
@@ -107,13 +109,11 @@ function fill_table_row(roomId) {
 				if( i == 0 )
 					row += response.id + "</th>";
 				else {
-					row += "<td roomId='" + roomId + "' startH='" + startH + "' startM='" + startM + "' endH='" + endH + "' end='" + endM + "' selected='0' class='time-slot' ";
+					row += "<td id='" + roomId + "-" + startH + "-" + startM + "' roomId='" + roomId + "' startH='" + startH + "' startM='" + startM + "' class='time-slot' ";
 					var value = 0;
 					
 					if( response.startH == startH
-							&& response.startM == startM
-							&& response.endH == endH
-							&& response.endM == endM) {
+							&& response.startM == startM ) {
 						value = 1;
 					}
 					
@@ -124,11 +124,6 @@ function fill_table_row(roomId) {
 						startH++;
 						startM = 0;
 					}
-					endM += 30;
-					if(endM == 60) {
-						endH++;
-						endM = 0;
-					}
 				}
 			}
 			
@@ -136,5 +131,5 @@ function fill_table_row(roomId) {
 			
 			$("#room-reservation-table").append(row);
 		}
-	})
+	});
 }

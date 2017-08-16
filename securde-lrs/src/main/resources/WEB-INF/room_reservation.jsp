@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 	<script src="jquery-3.2.1.min.js"></script>
      
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="utils/bootstrap/css/bootstrap.min.css">
+    <script src="utils/bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="js/room_reservation.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/room_reservation.css"/>
@@ -91,25 +91,7 @@
 <!-- 				<td class="time-slot" state="0"></td> -->
 <!-- 			</tr> -->
 		</table>
-		<form>
-			Last Name: <input type="text" name="last-name"> <br>
-			First Name: <input type="text" name="first-name"> <br>
-			Middle Initial: <input type="text" name="middle-initial"> <br>
-			ID Number: <input type="text" name="id-number"> <br>
-			Patron Type <br>
-			<select name="patron-type">
-				<option value="nigger">Nigger</option>
-			</select> <br>
-			Number of Attendees <br>
-			<select name="room-attendee-count">
-				<option value="3">3</option>
-			</select> <br>
-			Attendee Names <br>
-			<textarea rows="3" cols="50" name="room-attendees"></textarea>
-			<br>
-			<button name="submit-booking" type="submit">Submit</button>
-			<button name="cancel-booking">Cancel</button>
-		</form>
+		<button name="reserve" id="room-reservation-button">Reserve</button>
 	</div>
 </body>
 </html>

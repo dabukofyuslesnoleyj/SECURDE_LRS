@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 	<script src="jquery-3.2.1.min.js"></script>
      
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="utils/bootstrap/css/bootstrap.min.css">
+    <script src="utils/bootstrap/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="js/room_reservation_manager.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/room_reservation_manager.css"/>
@@ -30,44 +30,81 @@
 	</nav>
 	<!--  -->
 	
-	<h3 id="reservation-list-header">Reservation</h3>
-	<div id="reservation-list-container">
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Remove Reservation</button>
-			</div>
+	<h3 id="reservation-list-header">Rooms</h3>
+	<div class="room-reservation-form">
+		<table class="room-reservation-table">
+			<tr>
+				<th>Rooms</th>
+				<th>7:00</th>
+				<th>7:30</th>
+				<th>8:00</th>
+				<th>8:30</th>
+				<th>9:00</th>
+				<th>9:30</th>
+				<th>10:00</th>
+				<th>10:30</th>
+				<th>11:00</th>
+				<th>11:30</th>
+				<th>12:00</th>
+				<th>12:30</th>
+				<th>13:00</th>
+				<th>13:30</th>
+				<th>14:00</th>
+				<th>14:30</th>
+				<th>15:00</th>
+				<th>15:30</th>
+				<th>16:00</th>
+				<th>16:30</th>
+				<th>17:00</th>
+				<th>17:30</th>
+				<th>18:00</th>
+				<th>18:30</th>
+				<th>19:00</th>
+				<th>19:30</th>
+			</tr>
+<!-- 			<tr> -->
+<!-- 				<th>E101</th> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 				<td class="time-slot" state="0"></td> -->
+<!-- 			</tr> -->
+		</table>
+		<div id="room-slot-details">
+			<p id="room-slot-roomId" value="0">Room ID#: </p>
+			<p id="room-slot-timeslot" startH="0" startM="0" endH="0" endM="0">Timeslot: </p>
+			<p id="room-slot-reserveeId" value="0">Reservee ID#: </p>
 		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Remove Reservation</button>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Remove Reservation</button>
-			</div>
-		</div>
-		<div class="media">
-			<div class="media-body">
-				<h4 class="media-heading">Room #</h4>
-				<p>XX:00 - XX:00 Lastname, Firstname M.</p>
-			</div>
-			<div class="media-right">
-				<button>Remove Reservation</button>
-			</div>
-		</div>
+		<form id="room-slot-override-form" method="post">
+			Reservee ID#: <input id="room-slot-override-reserveeId" type="text" value="0">
+			Availability: <select id="room-slot-override-availability">
+							<option value="0">Available</option>
+							<option value="1">Unavailable</option>
+						  </select>
+			<input type="button" id="room-slot-override-button" value="Override">
+		</form>
 	</div>
 </body>
 </html>
