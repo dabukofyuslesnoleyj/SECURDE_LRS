@@ -2,15 +2,58 @@
  * 
  */
 
+var roomId = 0;
+
 $(function() {
-	$("#room-list-container").onload(function() {
-		for( var i = 1; i <= 5; i++) {
-			load_room(i);
+	
+	$(".room-reservation-table").onload(fill_table());
+	
+	$(".room-reservation-table").find(".time-slot").each(function() {
+		var state = $(this).data("state");
+		
+		if(state == 0) {
+			$(this).css({
+				"background-color": "#006635"
+			});
+			$(this).data("state", "1");
 		}
+		else {
+			$(this).css({
+				"background-color": "#99FF99"
+			});
+			$(this).data("state", "0");
+		}
+	});
+	
+	$(".time-slot").on("click", function(){
+		var slot = $(this);
+		var state = slot.data("state");
+		var timeStartH = slot.data("startH");
+		var timeStartM = slot.data("startM");
+		roomId = slot.data("roomId");
+		var reserveeId = slot.data("reserveeId");
+		if(timeStartM == "30") {
+			var timeEndH = slot.data("startH") + 1;
+			var timeEndM = "00";
+		}
+		else {
+			var timeEndH = slot.data("startH");
+			var timeEndM = "30";
+		}
+		
+		$("#room-slot-roomId").text("Room ID#: " + roomId);
+		$("#room-slot-timeslot").text("Timeslot: " + timeStartH + ":" + timeStartM + " - " + timeEndH + ":" + timeEndM);
+		$("#room-slot-reserveeId").text("Reservee ID#: " + reserveeId);
 	});
 });
 
-function load_room(roomId) {
+function fill_table() {
+	for(var i = 1; i <= 5; i++) {
+		fill_table_row(i);
+	}
+}
+
+function fill_table_row(roomId) {
 	$.ajax({
 		url: "/rest/room/slots",
 		type: "GET",
@@ -20,20 +63,34 @@ function load_room(roomId) {
 		success: function(data) {
 			var response = JSON.parse(data);
 			
-			var entry = "<div class='media'><div class='media-body'><h4 class='media-heading'>Room " + roomId + "</h4>";
+			var startH = 7, startM = 0, endH = 7, endM = 30;
+			var row = "<tr><th>";
 			
-			if(response.length == 0) {
-				entry += "<p>No Reservations</p><div class='media-right'><button>Disable Room</button>";
-			}
-			else {
-				for( var i=0; i < response.length; i++) {
-					entry += "<p>" + response[i].startH + ":" + response[i].startM + " - " + response.endH + ":" + response.endM + "</p>";
+			for( var i = 0; i < 27; i++) {
+				if( i == 0 )
+					row += response.id + "</th>";
+				else {
+					row += "<td id='" + roomId + "-" + startH + "-" + startM + "' roomId='" + roomId + "' startH='" + startH + "' startM='" + startM + "' class='time-slot' ";
+					var value = 0;
+					
+					if( response.startH == startH
+							&& response.startM == startM ) {
+						value = 1;
+					}
+					
+					row += "state='" + value + "'></td>";
+					
+					startM += 30;
+					if( startM == 60) {
+						startH++;
+						startM = 0;
+					}
 				}
 			}
 			
-			entry += "</div>";
+			row += "</tr>";
 			
-			$("#room-list-container").append(entry);
+			$("#room-reservation-table").append(row);
 		}
 	});
 }
