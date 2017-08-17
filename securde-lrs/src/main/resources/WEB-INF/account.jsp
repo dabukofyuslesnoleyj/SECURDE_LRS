@@ -31,13 +31,21 @@
         <div class="container">
 
             <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-3">
                     <div class="row">
                         <h2>
                             Reserved Rooms
                         </h2>
                     </div>
-                    <div class="panel panel-default list_panel">
+                    <div class="panel panel-default list_panel" id="reservedRoomsList">
                         <div class="media">
                             <div class="media-left media-top">
                                 
