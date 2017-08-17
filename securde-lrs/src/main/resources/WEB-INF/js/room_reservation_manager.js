@@ -64,14 +64,15 @@ function override_slot() {
 	if(roomId != 0) {
 		var timeStartH = $("#room-slot-timeslot").data("startH");
 		var timeStartM = $("#room-slot-timeslot").data("startM");
-		var timeEndH = $("#room-slot-timeslot").data("endH");
-		var timeEndM = $("#room-slot-timeslot").data("endM");
 		var reserveeId = $("#room-slot-reserveeId").data("reserveeId");
 		var availability = $("#room-slot-override-availability").val();
-		var availabilityText = $("#room-slot-override-availability option[value='" + $("#room-slot-override-availability").val() + "']").text();
+		var available;
 		if(availability == 0) {
 			reserveeId = 0;
+			available = true;
 		}
+		else
+			available = false;
 		
 		$.ajax({
 			url: "/",
@@ -81,10 +82,8 @@ function override_slot() {
 				roomId: roomId,
 				startH: timeStartH,
 				startM: timeStartM,
-				endH: timeEndH,
-				endM: timeEndM,
 				reserveeId: reserveeId,
-				availability: availabilityText
+				availability: available
 			}
 		});
 	}
@@ -106,7 +105,7 @@ function fill_table_row(roomId) {
 		success: function(data) {
 			var response = JSON.parse(data);
 			
-			var startH = 7, startM = 0, endH = 7, endM = 30;
+			var startH = 7, startM = 0;
 			var row = "<tr><th>";
 			
 			for( var i = 0; i < 27; i++) {
