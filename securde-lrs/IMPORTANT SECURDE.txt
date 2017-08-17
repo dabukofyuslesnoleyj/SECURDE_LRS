@@ -71,7 +71,7 @@ Availability of Meeting room
 }
 Override Reservation
 {
-	reserveId
+	reservationId, roomId, startH, startM, reserveeId, available
 }
 
 Unlock
@@ -80,12 +80,12 @@ Unlock
 }
 
 
-TimeSlots Available
+TimeSlots Taken
 {
 	roomId
 }
 [
-	{id, startH, startM, endH, endM}
+	{roomId, startH, startM, reservationId, reserveeId}
 ]
 
 Search items
