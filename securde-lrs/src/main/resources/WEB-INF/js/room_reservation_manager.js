@@ -3,6 +3,7 @@
  */
 
 var roomId = 0;
+var reservationId = 0;
 
 $(function() {
 	
@@ -31,6 +32,7 @@ $(function() {
 		var timeStartH = slot.data("startH");
 		var timeStartM = slot.data("startM");
 		roomId = slot.data("roomId");
+		reservationId = slot.data("reservationId");
 		var reserveeId = slot.data("reserveeId");
 		if(timeStartM == "30") {
 			var timeEndH = slot.data("startH") + 1;
@@ -62,24 +64,26 @@ function override_slot() {
 	if(roomId != 0) {
 		var timeStartH = $("#room-slot-timeslot").data("startH");
 		var timeStartM = $("#room-slot-timeslot").data("startM");
-		var timeEndH = $("#room-slot-timeslot").data("endH");
-		var timeEndM = $("#room-slot-timeslot").data("endM");
 		var reserveeId = $("#room-slot-reserveeId").data("reserveeId");
 		var availability = $("#room-slot-override-availability").val();
-		var availabilityText = $("#room-slot-override-availability option[value='" + $("#room-slot-override-availability").val() + "']").text();
+		var available;
 		if(availability == 0) {
 			reserveeId = 0;
+			available = true;
 		}
+		else
+			available = false;
 		
 		$.ajax({
 			url: "/",
 			type: "POST",
 			data: {
+				reservationId: reservationId,
 				roomId: roomId,
 				startH: timeStartH,
 				startM: timeStartM,
 				reserveeId: reserveeId,
-				availability: availabilityText
+				availability: available
 			}
 		});
 	}
@@ -101,7 +105,7 @@ function fill_table_row(roomId) {
 		success: function(data) {
 			var response = JSON.parse(data);
 			
-			var startH = 7, startM = 0, endH = 7, endM = 30;
+			var startH = 7, startM = 0;
 			var row = "<tr><th>";
 			
 			for( var i = 0; i < 27; i++) {
@@ -110,13 +114,15 @@ function fill_table_row(roomId) {
 				else {
 					row += "<td id='" + roomId + "-" + startH + "-" + startM + "' roomId='" + roomId + "' startH='" + startH + "' startM='" + startM + "' reserveeId='" + response.reserveeId + "' class='time-slot' ";
 					var value = 0;
+					var reservationId = 0;
 					
 					if( response.startH == startH
 							&& response.startM == startM ) {
 						value = 1;
+						reservationId = response.reservationId;
 					}
 					
-					row += "state='" + value + "'></td>";
+					row += "state='" + value + "' reservationId='" + reservationId + "'></td>";
 					
 					startM += 30;
 					if( startM == 60) {
