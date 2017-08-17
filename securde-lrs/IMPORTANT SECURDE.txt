@@ -21,7 +21,7 @@ Generic Ajax Message
 
 Retrieve Staff Accounts
 [
-	id, password, staffType
+	accounts {id, password, staffType}[]
 ]
 Register
 {
