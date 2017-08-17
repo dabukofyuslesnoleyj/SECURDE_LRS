@@ -28,12 +28,26 @@
         </nav>
         <!--  -->
 
+
         <div class=="row">
-            <input type="password" placeholder="Enter current password"></input>
+            <ul>
+            <li>
+                <input type="password" placeholder="Enter current password"></input>
+            </li>
+            <li>
             <input type="password" placeholder="Re-enter current password"></input>
+            </li>
+            <li>
             <input type="password" placeholder="Enter new password"></input>
+            </li>
+            <li>
             <input type="password" placeholder="Re-enter current password"></input>
+            </li>
+            <li>
             <button>SAVE</button>
+            </li>
+            </ul>
+            
         </div> 
 
     </body>
