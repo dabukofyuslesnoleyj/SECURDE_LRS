@@ -3,6 +3,7 @@
  */
 
 var roomId = 0;
+var reservationId = 0;
 
 $(function() {
 	
@@ -31,6 +32,7 @@ $(function() {
 		var timeStartH = slot.data("startH");
 		var timeStartM = slot.data("startM");
 		roomId = slot.data("roomId");
+		reservationId = slot.data("reservationId");
 		var reserveeId = slot.data("reserveeId");
 		if(timeStartM == "30") {
 			var timeEndH = slot.data("startH") + 1;
@@ -75,9 +77,12 @@ function override_slot() {
 			url: "/",
 			type: "POST",
 			data: {
+				reservationId: reservationId,
 				roomId: roomId,
 				startH: timeStartH,
 				startM: timeStartM,
+				endH: timeEndH,
+				endM: timeEndM,
 				reserveeId: reserveeId,
 				availability: availabilityText
 			}
@@ -110,13 +115,15 @@ function fill_table_row(roomId) {
 				else {
 					row += "<td id='" + roomId + "-" + startH + "-" + startM + "' roomId='" + roomId + "' startH='" + startH + "' startM='" + startM + "' reserveeId='" + response.reserveeId + "' class='time-slot' ";
 					var value = 0;
+					var reservationId = 0;
 					
 					if( response.startH == startH
 							&& response.startM == startM ) {
 						value = 1;
+						reservationId = response.reservationId;
 					}
 					
-					row += "state='" + value + "'></td>";
+					row += "state='" + value + "' reservationId='" + reservationId + "'></td>";
 					
 					startM += 30;
 					if( startM == 60) {
