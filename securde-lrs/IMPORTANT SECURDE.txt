@@ -19,6 +19,10 @@ Generic Ajax Message
 500 - Internal server error
 503 - service unavailable (not implemented yet)
 
+Retrieve Staff Accounts
+[
+	accounts {id, password, staffType}[]
+]
 Register
 {
 	name: {f, m, l},

@@ -1,0 +1,53 @@
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	display: block;
+	overflow-x: auto;
+}
+
+td, th {
+	border: 1px solid #000000;
+	text-align: left;
+	padding: 8px;
+}
+
+button {
+	background-color: #006635;
+	border-radius: 10px;
+	color: #FFFFFF;
+}
+
+.col-md-5 {
+	color: #FFFFFF;
+	background: #006600;
+	margin-left: 5%;
+	height: 75%;
+}
+
+#admin-account-create {
+	color: #000000;
+	background: #FFFFFF;
+	height: 90%;
+	width: 100%;
+}
+
+#admin-account-list {
+	color: #000000;
+	background: #FFFFFF;
+	height: 90%;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.media {
+	padding: 5px;
+}
+
+.media:nth-child(even) {
+	background-color: #99FF99;
+}
+
+.media p {
+	margin: 0;
+}
